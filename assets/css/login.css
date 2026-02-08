@@ -12,7 +12,7 @@
     
     /* Text Colors */
     --text-dark: #1a1a1a;
-    --text-gray: #6B7280;
+    --text-gray: #9E9E9E;
     --text-light: #9CA3AF;
     
     /* Background */
@@ -20,7 +20,7 @@
     --bg-light: #F9FAFB;
     
     /* Borders */
-    --border: #E5E7EB;
+    --border: #FF5C00;
 }
 
 /* ==========================================
@@ -42,7 +42,7 @@ body {
    LEFT SIDE - Image Section
    ========================================== */
 .left-side {
-    background-color: var(--orange);
+    background-color: #FF3D00;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@ body {
 }
 
 .illustration-wrapper {
-    max-width: 450px;
+    max-width: 660px;
     width: 100%;
     padding: 40px;
 }
@@ -65,7 +65,7 @@ body {
    RIGHT SIDE - Form Section
    ========================================== */
 .right-side {
-    background-color: var(--bg-light);
+    background-color: #FFFFFF;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -82,7 +82,7 @@ body {
    BRAND TITLE
    ========================================== */
 .brand-title {
-    font-family: var(--main-font);
+    font-family: var(--main-text);
     font-size: 40px;
     font-weight: 750;
     color: var(--text-dark);
@@ -110,6 +110,7 @@ body {
 .form-group label {
     display: block;
     font-size: 14px;
+    font-family: var(--secondary-text);
     font-weight: 500;
     color: var(--text-gray);
     margin-bottom: 8px;
@@ -141,8 +142,8 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
 }
 
 .icon-left {
@@ -183,15 +184,19 @@ body {
 
 .checkbox-wrapper label {
     font-size: 14px;
+    font-family: var(--secondary-text);
+    font-weight: 300;
     color: var(--text-gray);
     cursor: pointer;
 }
 
 .forgot-link {
-    font-size: 14px;
-    color: var(--orange);
+    font-size: 15px;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
+    font-family: var(--secondary-text);
+    font-weight: 300;
+    color: #FF5C00;
 }
 
 .forgot-link:hover {
@@ -202,14 +207,15 @@ body {
    BUTTONS
    ========================================== */
 .btn-primary {
-    width: 100%;
+    width: 72%;
     padding: 14px;
-    background-color: var(--orange);
-    color: white;
+    background-color: #FF5C00;
+    color: #FAF9F6;
     border: none;
-    border-radius: 8px;
+    border-radius: 14px;
     font-size: 16px;
-    font-weight: 600;
+     font-weight: 600;
+    font-family: var(--secondary-text);
     cursor: pointer;
     transition: all 0.3s;
     margin-bottom: 30px;
@@ -223,12 +229,13 @@ body {
 
 .btn-google {
     width: 100%;
-    padding: 12px;
+    padding: 18px 12px;
     background-color: var(--bg-white);
-    color: var(--text-gray);
+    color: #9E9E9E;
     border: 1px solid var(--border);
     border-radius: 8px;
-    font-size: 15px;
+    font-size: 16px;
+    font-family: var(--secondary-text);
     font-weight: 500;
     cursor: pointer;
     display: flex;
@@ -263,7 +270,7 @@ body {
     left: 0;
     right: 0;
     height: 1px;
-    background-color: var(--border);
+    background-color: #9E9E9E;
 }
 
 .divider span {
@@ -271,8 +278,10 @@ body {
     display: inline-block;
     padding: 0 16px;
     background-color: var(--bg-light);
-    color: var(--text-light);
-    font-size: 14px;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--secondary-text);
 }
 
 /* ==========================================

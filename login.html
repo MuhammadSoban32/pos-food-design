@@ -17,6 +17,8 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/login.css">
+    <!-- Fony Awesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Main Container -->
@@ -24,7 +26,7 @@
         <div class="row">
             
             <!-- Left Side - Image Section -->
-            <div class="col-lg-6 left-side">
+            <div class="col-lg-6 left-side order-1 order-lg-0">
                 <div class="illustration-wrapper">
                     <img src="assets/imgs/main.png" alt="POS Illustration" class="illustration">
                 </div>
@@ -55,7 +57,8 @@
                             <div class="input-wrapper">
                                 <img src="assets/imgs/Lock.png" alt="Lock Icon" class="icon icon-left">
                                 <input type="password" id="password" name="password" class="input-field" required>
-                                <img src="assets/imgs/Hide.png" alt="Show Password" class="icon icon-right toggle-password">
+                                <!-- <img src="assets/imgs/Hide.png" alt="Show Password" class="icon icon-right toggle-password"> -->
+                                <i class="fa-solid fa-eye icon icon-right toggle-password" id="togglePassword"></i>
                             </div>
                         </div>
 
@@ -69,7 +72,9 @@
                         </div>
 
                         <!-- Login Button -->
-                        <button type="submit" class="btn-primary">Login</button>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn-primary">Login</button>
+                        </div>
 
                         <!-- Divider -->
                         <div class="divider">
@@ -92,24 +97,18 @@
     <!-- JavaScript -->
     <script>
         // Password Toggle
-        document.querySelector('.toggle-password').addEventListener('click', function() {
+        document.getElementById('togglePassword').addEventListener('click', function () {
             const passwordField = document.getElementById('password');
-            const type = passwordField.type === 'password' ? 'text' : 'password';
-            passwordField.type = type;
-        });
 
-        // Form Submit Handler (backend integration ready)
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value,
-                remember: document.getElementById('remember').checked
-            };
-            
-            console.log('Form Data:', formData);
-            // Backend: Send formData to your API endpoint
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                this.classList.remove('fa-eye');
+                this.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                this.classList.remove('fa-eye-slash');
+                this.classList.add('fa-eye');
+            }
         });
     </script>
 </body>
