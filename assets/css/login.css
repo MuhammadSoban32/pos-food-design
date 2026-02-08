@@ -1,0 +1,334 @@
+:root {
+  --main-text: 'Nunito', sans-serif;
+}
+
+/* ==========================================
+   COLOR VARIABLES - Easy to Change
+   ========================================== */
+:root {
+    /* Main Colors */
+    --orange: #FF5722;
+    --orange-dark: #F4511E;
+    
+    /* Text Colors */
+    --text-dark: #1a1a1a;
+    --text-gray: #6B7280;
+    --text-light: #9CA3AF;
+    
+    /* Background */
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFB;
+    
+    /* Borders */
+    --border: #E5E7EB;
+}
+
+/* ==========================================
+   RESET & BASE
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+}
+
+/* ==========================================
+   LEFT SIDE - Image Section
+   ========================================== */
+.left-side {
+    background-color: var(--orange);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.illustration-wrapper {
+    max-width: 450px;
+    width: 100%;
+    padding: 40px;
+}
+
+.illustration {
+    width: 100%;
+    height: auto;
+}
+
+/* ==========================================
+   RIGHT SIDE - Form Section
+   ========================================== */
+.right-side {
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.form-wrapper {
+    max-width: 420px;
+    width: 100%;
+}
+
+/* ==========================================
+   BRAND TITLE
+   ========================================== */
+.brand-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.highlight {
+    color: var(--orange);
+}
+
+/* ==========================================
+   FORM
+   ========================================== */
+.login-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+}
+
+/* Input Wrapper */
+.input-wrapper {
+    position: relative;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: var(--bg-white);
+    transition: border 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.1);
+}
+
+/* Icons */
+.icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+}
+
+.icon-left {
+    left: 14px;
+}
+
+.icon-right {
+    right: 14px;
+    cursor: pointer;
+}
+
+.icon-right:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================
+   REMEMBER & FORGOT
+   ========================================== */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--orange);
+}
+
+.checkbox-wrapper label {
+    font-size: 14px;
+    color: var(--text-gray);
+    cursor: pointer;
+}
+
+.forgot-link {
+    font-size: 14px;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    color: var(--orange-dark);
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 30px;
+}
+
+.btn-primary:hover {
+    background-color: var(--orange-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+}
+
+.btn-google {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-white);
+    color: var(--text-gray);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.3s;
+}
+
+.btn-google:hover {
+    background-color: var(--bg-light);
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================================
+   DIVIDER
+   ========================================== */
+.divider {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: var(--border);
+}
+
+.divider span {
+    position: relative;
+    display: inline-block;
+    padding: 0 16px;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+/* ==========================================
+   RESPONSIVE - Mobile & Tablet
+   ========================================== */
+
+/* Tablet */
+@media (max-width: 991px) {
+    .left-side {
+        min-height: 40vh;
+    }
+    
+    .illustration-wrapper {
+        max-width: 350px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .left-side {
+        min-height: 35vh;
+    }
+    
+    .illustration-wrapper {
+        max-width: 280px;
+        padding: 30px;
+    }
+    
+    .brand-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    
+    .right-side {
+        padding: 30px 20px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 575px) {
+    .left-side {
+        min-height: 30vh;
+    }
+    
+    .illustration-wrapper {
+        max-width: 240px;
+        padding: 20px;
+    }
+    
+    .brand-title {
+        font-size: 26px;
+        margin-bottom: 35px;
+    }
+    
+    .input-field {
+        font-size: 15px;
+    }
+    
+    .btn-primary,
+    .btn-google {
+        font-size: 14px;
+    }
+}
