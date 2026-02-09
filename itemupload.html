@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy POS - Header</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<div>
+
+    <!-- Header -->
+    <header class="header">
+        
+         <button class="hamburger" id="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <!-- Logo -->
+        <div class="logo">
+            <span class="logo-text">Easy <span class="logo-highlight">POS</span></span>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links" id="navLinks">
+            <a href="#" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Order List</a>
+            <a href="#" class="nav-link">History</a>
+            <a href="#" class="nav-link">Bills</a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="header-actions">
+            <button class="btn-new-order">New Order</button>
+
+            <div class="notification-btn">
+                <img src="assets/imgs/bellicon.png" alt="Notifications" class="notification-icon">
+            </div>
+
+            <div class="user-profile">
+                <img src="assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-wrapper">
+
+        <aside class="sidebar">
+        
+        <!-- Navigation Menu -->
+        <nav class="sidebar-nav">
+            
+            <!-- Home - Active with Green Background -->
+            <a href="#" class="nav-item active">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Home Page.png" alt="Home" class="nav-icon">
+                </div>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <!-- Customer -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/orders.png" alt="Order Cancel" class="nav-icon">
+                </div>
+                <span class="nav-text">Order Cancel</span>
+            </a>
+            
+            <!-- Tables -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Order History.png" alt="Order HIstory" class="nav-icon">
+                </div>
+                <span class="nav-text">Order History</span>
+            </a>
+            
+            <!-- Cashier -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Settings.png" alt="Settings" class="nav-icon">
+                </div>
+                <span class="nav-text">Settings</span>
+            </a>
+            
+            <!-- Orders -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Customer.png" alt="Customers" class="nav-icon">
+                </div>
+                <span class="nav-text">Customers</span>
+            </a>
+            
+            <!-- Reports -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/tablet.png" alt="Tablets" class="nav-icon">
+                </div>
+                <span class="nav-text">Tablets</span>
+            </a>
+            
+            <!-- Settings -->
+
+            
+        </nav>
+        
+        <!-- User Profile Section at Bottom -->
+        <div class="sidebar-footer">
+            
+            <!-- User Avatar -->
+            <div class="user-avatar-wrapper">
+                <img src="assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+            
+            <!-- Logout -->
+            <a href="#" class="nav-item logout">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Logout.png" alt="Logout" class="nav-icon">
+                </div>
+                <span class="nav-text">Logout</span>
+            </a>
+            
+        </div>
+        
+    </aside>
+    <div class="container-fluid">
+
+  <!-- Add New Product Page -->
+<main class="main-content">
+    
+    <!-- Top Action Bar -->
+    <div class="product-header">
+        <div class="product-header-left">
+            <button class="back-btn">
+                <img src="assets/imgs/Less Than.png" alt="Back" class="back-icon">
+            </button>
+            <div class="product-title-info">
+                <h1 class="product-title">Add New Product</h1>
+                <p class="last-update">Last Update: 1 February 2025 at 8:00 PM</p>
+            </div>
+        </div>
+        <div class="product-header-right">
+            <button class="delete-btn">
+                <img src="assets/imgs/Delete.png" alt="Delete" class="delete-icon">
+            </button>
+            <button class="save-draft-btn">Save Draft</button>
+            <button class="publish-btn">Publish</button>
+        </div>
+    </div>
+
+    <!-- Main Product Form -->
+    <div class="product-form-wrapper">
+        
+        <!-- Left Column -->
+        <div class="product-left-column">
+            
+            <!-- Main Product Image -->
+            <div class="main-image-section">
+                <div class="main-image-upload">
+                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Product" class="uploaded-main-image">
+                </div>
+                <label class="cover-checkbox">
+                    <input type="checkbox" checked>
+                    <span>Cover</span>
+                </label>
+            </div>
+
+            <!-- Additional Product Images -->
+            <div class="additional-images-section">
+                <div class="additional-image">
+                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Product variant">
+                </div>
+                <div class="additional-image">
+                    <img src="assets/imgs/burger3.png" alt="Product variant">
+                </div>
+                <div class="additional-image">
+                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Product variant">
+                </div>
+                <div class="additional-image add-more">
+                    <span class="add-icon">+</span>
+                </div>
+            </div>
+
+            <!-- Visibility Section -->
+            <div class="visibility-section">
+                <h3 class="section-title">Visibility</h3>
+                <p class="section-description">You can change the visibility of this product for customers</p>
+                <label class="visibility-option">
+                    <input type="radio" name="visibility" checked>
+                    <span class="radio-custom"></span>
+                    <span class="radio-label">Visible</span>
+                </label>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <h3 class="section-title">Preview</h3>
+                <p class="section-description">Want to see how your product look like?</p>
+                <button class="preview-btn">Preview</button>
+            </div>
+
+            <!-- Related Items Section -->
+            <div class="related-items-section">
+                <div class="related-items-header">
+                    <h3 class="section-title">Related Items</h3>
+                    <button class="add-related-btn">+</button>
+                </div>
+                <p class="section-description">Add related items to this product</p>
+                
+                <div class="related-items-list">
+                    <!-- Related Item 1 -->
+                    <div class="related-item">
+                        <img src="assets/imgs/pngwing.com (12) 2.png" alt="Comfort Box" class="related-item-img">
+                        <div class="related-item-info">
+                            <p class="related-item-name">Find Comfort Box &...</p>
+                            <p class="related-item-price">$28</p>
+                        </div>
+                        <button class="copy-item-btn">
+                            <img src="assets/imgs/Delete.png" alt="Copy" class="copy-icon">
+                        </button>
+                    </div>
+
+                    <!-- Related Item 2 -->
+                    <div class="related-item">
+                        <img src="assets/imgs/pngwing.com (12) 2.png" alt="Comfort Box" class="related-item-img">
+                        <div class="related-item-info">
+                            <p class="related-item-name">Find Comfort Box &...</p>
+                            <p class="related-item-price">$28</p>
+                        </div>
+                        <button class="copy-item-btn">
+                            <img src="assets/imgs/Delete.png" alt="Copy" class="copy-icon">
+                        </button>
+                    </div>
+
+                    <!-- Related Item 3 -->
+                    <div class="related-item">
+                        <img src="assets/imgs/pngwing.com (12) 2.png" alt="Comfort Box" class="related-item-img">
+                        <div class="related-item-info">
+                            <p class="related-item-name">Find Comfort Box &...</p>
+                            <p class="related-item-price">$28</p>
+                        </div>
+                        <button class="copy-item-btn">
+                            <img src="assets/imgs/Delete.png" alt="Copy" class="copy-icon">
+                        </button>
+                    </div>
+
+                    <!-- Related Item 4 -->
+                    <div class="related-item">
+                        <img src="assets/imgs/pngwing.com (12) 2.png" alt="Comfort Box" class="related-item-img">
+                        <div class="related-item-info">
+                            <p class="related-item-name">Find Comfort Box &...</p>
+                            <p class="related-item-price">$28</p>
+                        </div>
+                        <button class="copy-item-btn">
+                            <img src="assets/imgs/Delete.png" alt="Copy" class="copy-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Column - Product Details -->
+        <div class="product-right-column">
+            
+            <div class="product-details-card">
+                
+                <!-- Header with Status -->
+                <div class="details-card-header">
+                    <div class="details-header-left">
+                        <h2 class="details-title">Product Details</h2>
+                        <p class="details-subtitle">Key info to describe and display your product</p>
+                    </div>
+                    <span class="status-badge">Status: Draft</span>
+                </div>
+
+                <!-- Tabs -->
+                <div class="details-tabs">
+                    <button class="tab-btn active">General</button>
+                    <button class="tab-btn">Advanced</button>
+                </div>
+
+                <!-- Form Fields -->
+                <form class="product-details-form">
+                    
+                    <!-- Product Name -->
+                    <div class="form-group full-width">
+                        <label class="form-label">Product Name</label>
+                        <input type="text" class="form-input" placeholder="Enter product name">
+                    </div>
+
+                    <!-- Status and Brand Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Status</label>
+                            <select class="form-select">
+                                <option>Select status</option>
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Brand</label>
+                            <select class="form-select">
+                                <option>Select brand</option>
+                                <option>Brand A</option>
+                                <option>Brand B</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Category and Subcategory Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select class="form-select">
+                                <option>Select category</option>
+                                <option>Burger</option>
+                                <option>Pizza</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Subcategory</label>
+                            <select class="form-select">
+                                <option>Select subcategory</option>
+                                <option>Sub A</option>
+                                <option>Sub B</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Price and Discount Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Price</label>
+                            <input type="number" class="form-input" placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Discount</label>
+                            <div class="input-with-suffix">
+                                <input type="number" class="form-input" placeholder="0">
+                                <span class="input-suffix">%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group full-width">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-textarea" rows="5" placeholder="Enter product description"></textarea>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+    </div>
+</div>
+
+    <!-- JavaScript for Hamburger -->
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', function () {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
+    
+
+  

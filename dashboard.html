@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy POS - Header</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<div>
+
+    <!-- Header -->
+    <header class="header">
+        
+         <button class="hamburger" id="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <!-- Logo -->
+        <div class="logo">
+            <span class="logo-text">Easy <span class="logo-highlight">POS</span></span>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links" id="navLinks">
+            <a href="#" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Order List</a>
+            <a href="#" class="nav-link">History</a>
+            <a href="#" class="nav-link">Bills</a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="header-actions">
+            <button class="btn-new-order">New Order</button>
+
+            <div class="notification-btn">
+                <img src="assets/imgs/bellicon.png" alt="Notifications" class="notification-icon">
+            </div>
+
+            <div class="user-profile">
+                <img src="assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-wrapper">
+
+        <aside class="sidebar">
+        
+        <!-- Navigation Menu -->
+        <nav class="sidebar-nav">
+            
+            <!-- Home - Active with Green Background -->
+            <a href="#" class="nav-item active">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Home Page.png" alt="Home" class="nav-icon">
+                </div>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <!-- Customer -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/orders.png" alt="Order Cancel" class="nav-icon">
+                </div>
+                <span class="nav-text">Order Cancel</span>
+            </a>
+            
+            <!-- Tables -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Order History.png" alt="Order HIstory" class="nav-icon">
+                </div>
+                <span class="nav-text">Order History</span>
+            </a>
+            
+            <!-- Cashier -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Settings.png" alt="Settings" class="nav-icon">
+                </div>
+                <span class="nav-text">Settings</span>
+            </a>
+            
+            <!-- Orders -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Customer.png" alt="Customers" class="nav-icon">
+                </div>
+                <span class="nav-text">Customers</span>
+            </a>
+            
+            <!-- Reports -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/tablet.png" alt="Tablets" class="nav-icon">
+                </div>
+                <span class="nav-text">Tablets</span>
+            </a>
+            
+            <!-- Settings -->
+
+            
+        </nav>
+        
+        <!-- User Profile Section at Bottom -->
+        <div class="sidebar-footer">
+            
+            <!-- User Avatar -->
+            <div class="user-avatar-wrapper">
+                <img src="assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+            
+            <!-- Logout -->
+            <a href="#" class="nav-item logout">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Logout.png" alt="Logout" class="nav-icon">
+                </div>
+                <span class="nav-text">Logout</span>
+            </a>
+            
+        </div>
+        
+    </aside>
+    <div class="container-fluid">
+
+        <!-- Dashboard Content Section -->
+<div class="row g-3">
+
+    <!-- LEFT SIDE : 9 columns -->
+    <div class="col-lg-9">
+
+        <!-- Top 3 cards -->
+        <div class="row g-3 mb-2">
+            <div class="col-lg-4 col-md-6">
+                <!-- Total Profit --><div class="stat-card">
+                <div class="stat-icon orange">
+                    <img src="assets/imgs/Positive Dynamic.png" alt="Profit Icon">
+                </div>
+                <div class="stat-details">
+                    <div class="stat-label">Total Profit</div>
+                    <div class="stat-sublabel">Last week</div>
+                    <div class="stat-value">1.8k</div>
+                    <div class="stat-change positive">+3%</div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <!-- Total Sales -->
+                    <div class="stat-card">
+                <div class="stat-icon green">
+                    <img src="assets/imgs/Us Dollar Circled.png" alt="Sales Icon">
+                </div>
+                <div class="stat-details">
+                    <div class="stat-label">Total sales</div>
+                    <div class="stat-sublabel">Last week</div>
+                    <div class="stat-value">1.8k</div>
+                    <div class="stat-change negative">+4%</div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <!-- Total Revenue -->
+                 <div class="chart-card mud1">
+                <div class="chart-header-simple">
+                    <div class="chart-title">Total Revenue</div>
+                    <div class="chart-subtitle">Last year</div>
+                </div>
+                <!-- <div class="revenue-value">100.0k</div> -->
+                <!-- <div class="revenue-change">+25%</div> -->
+                <div class="chart-wrapper small">
+                    <canvas id="revenueBarChart"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Sales Performance -->
+        <div class="row g-0 mb-3">
+            <div class="col-12">
+                <!-- Sales Performance Chart -->
+                 <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Sales Performance</div>
+                    <div class="filter-dropdown">
+                        <select class="filter-select">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-legend-horizontal">
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #FF6B35;"></span>
+                        <span class="legend-text">Net income</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #2DD4BF;"></span>
+                        <span class="legend-text">Total sales</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #9CA3AF;"></span>
+                        <span class="legend-text">Total revenue</span>
+                    </div>
+                </div>
+                <div class="chart-wrapper large">
+                    <canvas id="salesAreaChart"></canvas>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Total Selling Products -->
+        <div class="row g-3">
+            <div class="col-12">
+                <!-- Total Selling Products Table -->
+                   <div class="chart-card">
+                <div class="chart-header-simple">
+                    <div class="chart-title">Total selling products</div>
+                </div>
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>QTY</th>
+                            <th>Sales</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="product-cell">
+                                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Burger" class="product-img">
+                                    <span class="product-name">Burger</span>
+                                </div>
+                            </td>
+                            <td>250</td>
+                            <td>$80</td>
+                            <td><span class="status-badge in-stock">In stock</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product-cell">
+                                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Burger" class="product-img">
+                                    <span class="product-name">Burger</span>
+                                </div>
+                            </td>
+                            <td>250</td>
+                            <td>$80</td>
+                            <td><span class="status-badge in-stock">In stock</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product-cell">
+                                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Burger" class="product-img">
+                                    <span class="product-name">Burger</span>
+                                </div>
+                            </td>
+                            <td>250</td>
+                            <td>$80</td>
+                            <td><span class="status-badge in-stock">In stock</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product-cell">
+                                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Burger" class="product-img">
+                                    <span class="product-name">Burger</span>
+                                </div>
+                            </td>
+                            <td>250</td>
+                            <td>$80</td>
+                            <td><span class="status-badge in-stock">In stock</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE : 3 columns -->
+    <div class="col-lg-3">
+
+        <div class="row g-3">
+
+            <div class="col-12">
+                <!-- Payment Method Chart -->
+                      <div class="chart-card ">
+                <div class="chart-header">
+                    <div class="chart-title">Payment Method</div>
+                    <div class="filter-dropdown">
+                        <select class="filter-select">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="donut-wrapper">
+                    <canvas id="paymentDonutChart"></canvas>
+                    <div class="donut-center">
+                        <div class="donut-value">100.00</div>
+                        <div class="donut-label">Total</div>
+                    </div>
+                </div>
+                <div class="donut-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #FF6B35;"></span>
+                        <span class="legend-text">Cash (50%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #2DD4BF;"></span>
+                        <span class="legend-text">Card (30%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #FFB84D;"></span>
+                        <span class="legend-text">Card (20%)</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #E6E6FA;"></span>
+                        <span class="legend-text">Wallet (20%)</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-12">
+                <!-- Customer Map Chart -->
+                  <div class="chart-card">
+                <div class="chart-header">
+                    <div class="chart-title">Customer Map</div>
+                    <div class="filter-dropdown">
+                        <select class="filter-select">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-wrapper medium">
+                    <canvas id="customerLineChart"></canvas>
+                </div>
+            </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    </div>
+</div>
+
+    <!-- JavaScript for Hamburger -->
+
+    <script src="assets/javascript/dashboard.js"></script>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', function () {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
+    
+
+  
