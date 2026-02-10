@@ -140,13 +140,126 @@
     </aside>
     <div class="container-fluid">
 
+        <!-- Add Users Form -->
+<main class="main-content add-users-screen">
+    
+    <!-- Top Header -->
+    <div class="form-header">
+        <h1 class="form-title">Add Users</h1>
+        <div class="form-actions">
+            <button class="action-btn view-btn">
+                <img src="/assets/imgs/Hide.png" alt="View" class="action-icon">
+            </button>
+            <button class="action-btn edit-btn">
+                <img src="/assets/imgs/Pencil.png" alt="Edit" class="action-icon">
+            </button>
+            <button class="action-btn delete-btn">
+                <img src="/assets/imgs/Delete.png" alt="Delete" class="action-icon">
+            </button>
+        </div>
+    </div>
 
+    <!-- Form Layout -->
+    <div class="form-layout">
+        
+        <!-- Left Column - Photo Upload -->
+        <div class="form-left">
+            <div class="photo-upload-box">
+                <div class="upload-icon-wrapper">
+                    <img src="/assets/imgs/Downloads.png" alt="Upload" class="upload-icon">
+                </div>
+                <p class="upload-text">Upload Photo</p>
+                <input type="file" id="photoUpload" accept="image/*" style="display: none;">
+            </div>
+        </div>
 
+        <!-- Right Column - Form Fields -->
+        <div class="form-right">
+            
+            <!-- User Details Section -->
+            <div class="form-section">
+                <h3 class="section-title">User Details</h3>
+                
+                <div class="form-fields">
+                    <!-- User ID -->
+                    <div class="form-field">
+                        <label class="field-label">User ID</label>
+                        <input type="text" class="field-input" placeholder="">
+                    </div>
+
+                    <!-- Full Name -->
+                    <div class="form-field">
+                        <label class="field-label">Full Name</label>
+                        <input type="text" class="field-input" placeholder="">
+                    </div>
+
+                    <!-- CNIC -->
+                    <div class="form-field">
+                        <label class="field-label">CNIC</label>
+                        <input type="text" class="field-input" placeholder="">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-field">
+                        <label class="field-label">Password</label>
+                        <input type="password" class="field-input" placeholder="">
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="form-field">
+                        <label class="field-label">Contact Number</label>
+                        <textarea class="field-textarea" rows="4" placeholder=""></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Details Section -->
+            <div class="form-section">
+                <h3 class="section-title">Personal Details</h3>
+                
+                <div class="form-fields">
+                    <!-- Email -->
+                    <div class="form-field">
+                        <label class="field-label">Email</label>
+                        <input type="email" class="field-input" placeholder="">
+                    </div>
+
+                    <!-- Home Address -->
+                    <div class="form-field">
+                        <label class="field-label">Home Address</label>
+                        <input type="text" class="field-input" placeholder="">
+                    </div>
+
+                    <!-- Role -->
+                    <div class="form-field">
+                        <label class="field-label">Role</label>
+                        <select class="field-select">
+                            <option value="">Select Role</option>
+                            <option value="super-admin">Super Admin</option>
+                            <option value="sales-person">Sales Person</option>
+                            <option value="manager">Manager</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Form Footer Buttons -->
+    <div class="form-footer">
+        <button class="footer-cancel-btn">Cancel</button>
+        <button class="footer-save-btn">Save</button>
+    </div>
+
+</main>
 
     </div>
 </div>
 
     <!-- JavaScript for Hamburger -->
+
 
     <script>
         const hamburger = document.getElementById('hamburger');
