@@ -7,7 +7,8 @@
     --orange-dark: #F4511E;
     
     /* Text Colors */
-    --text-dark: #1F2937;
+    --text-dark: #000000;
+    --text-light: #C0C0C0;
     --text-gray: #6B7280;
     --text-white: #FFFFFF;
     
@@ -217,6 +218,9 @@ header.header {
 
 /* Mobile */
 @media (max-width: 768px) {
+    .dashboard-wrapper {
+        padding: 11px 0px 11px 0px !important;
+    }
     .header {
         padding: 12px 16px;
     }
@@ -293,67 +297,10 @@ header.header {
 }
 
 
-/* ==========================================
-   CSS VARIABLES - Dashboard Content
-   ========================================== */
-:root {
-    /* Chart Colors */
-    --chart-orange: #FF6B35;
-    --chart-green: #2DD4BF;
-    --chart-gray: #9CA3AF;
-    --chart-blue: #4169E1;
-    --chart-yellow: #FFB84D;
-    --chart-purple: #E6E6FA;
-    
-    /* Card Colors */
-    --card-orange-bg: #FFF4ED;
-    --card-green-bg: #D1FAE5;
-    
-    /* Text Colors */
-    --text-dark: #1F2937;
-    --text-gray: #6B7280;
-    --text-light: #9CA3AF;
-    
-    /* Background */
-    --bg-white: #FFFFFF;
-    --bg-card: #FFFFFF;
-    
-    /* Border */
-    --border: #E5E7EB;
-    
-    /* Status Colors */
-    --success: #10B981;
-    --warning: #FF6B35;
-    
-    /* Fonts */
-    --font-primary: 'Inter', sans-serif;
-}
 
 
 
-/* ==========================================
-   CSS VARIABLES - Sidebar Colors
-   ========================================== */
-:root {
-    /* Active State Color */
-    --green: #10B981;
-    --green-light: #34D399;
-    
-    /* Text Colors */
-    --text-dark: #1F2937;
-    --text-gray: #6B7280;
-    --text-light: #9CA3AF;
-    
-    /* Background */
-    --bg-white: #FFFFFF;
-    --bg-gray: #F9FAFB;
-    
-    /* Border */
-    --border: #E5E7EB;
-    
-    /* Fonts */
-    --font-primary: 'Inter', sans-serif;
-}
+
 
 /* ==========================================
    RESET
@@ -625,42 +572,6 @@ header.header {
 } */
 
 /* ==========================================
-   CSS VARIABLES - Dashboard Content
-   ========================================== */
-:root {
-    /* Chart Colors */
-    --chart-orange: #FF6B35;
-    --chart-green: #2DD4BF;
-    --chart-gray: #9CA3AF;
-    --chart-blue: #4169E1;
-    --chart-yellow: #FFB84D;
-    --chart-purple: #E6E6FA;
-    
-    /* Card Colors */
-    --card-orange-bg: #FFF4ED;
-    --card-green-bg: #D1FAE5;
-    
-    /* Text Colors */
-    --text-dark: #1F2937;
-    --text-gray: #6B7280;
-    --text-light: #9CA3AF;
-    
-    /* Background */
-    --bg-white: #FFFFFF;
-    --bg-card: #FFFFFF;
-    
-    /* Border */
-    --border: #E5E7EB;
-    
-    /* Status Colors */
-    --success: #10B981;
-    --warning: #FF6B35;
-    
-    /* Fonts */
-    --font-primary: 'Inter', sans-serif;
-}
-
-/* ==========================================
    DASHBOARD CONTENT
    ========================================== */
 .dashboard-content {
@@ -671,13 +582,14 @@ header.header {
    STAT CARDS
    ========================================== */
 .stat-card {
-    background: var(--bg-card);
+    background: var(--bg-white);
     border-radius: 12px;
     padding: 20px 16px;
     border: 1px solid var(--border);
-    display: flex;
+    /* display: flex; */
     gap: 12px;
     height: 95%;
+    display: flow-root !important;
 }
 
 .stat-icon {
@@ -691,11 +603,11 @@ header.header {
 }
 
 .stat-icon.orange {
-    background: var(--card-orange-bg);
+    background: #FFE1D84D;
 }
 
 .stat-icon.green {
-    background: var(--card-green-bg);
+    background: #4CAF5014;
 }
 
 .stat-icon img {
@@ -708,43 +620,52 @@ header.header {
 }
 
 .stat-label {
-    font-size: 12px;
+    font-family: var(--font-primary);
+    font-size: 14px;
     color: var(--text-dark);
     font-weight: 500;
     margin-bottom: 2px;
 }
 
 .stat-sublabel {
-    font-size: 10px;
+    font-size: 12px;
+    font-family: var(--font-primary);
+    font-weight: 500;
     color: var(--text-light);
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
 }
 
 .stat-value {
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 16px;
+    font-family: var(--font-primary);
+    font-weight: 500;
     color: var(--text-dark);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .stat-change {
     font-size: 11px;
     font-weight: 600;
+    background: #EBFFEB;
+    width: fit-content;
+    padding: 4px 19px;
+    border-radius: 6px;
 }
 
 .stat-change.positive {
-    color: var(--success);
+    color: #27E02E;
 }
 
 .stat-change.negative {
     color: var(--warning);
+    background: #FEF6F0 !important;
 }
 
 /* ==========================================
    CHART CARDS
    ========================================== */
 .chart-card {
-    background: var(--bg-card);
+    background: var(--bg-white);
     border-radius: 12px;
     padding: 20px;
     border: 1px solid var(--border);
@@ -764,7 +685,8 @@ header.header {
 
 .chart-title {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: var(--font-primary);
     color: var(--text-dark);
     margin-bottom: 2px;
 }
@@ -3485,7 +3407,7 @@ header.header {
 }
 
 .stat-card {
-    background-color: #fff;
+    background-color: var(--bg-white);
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -3544,15 +3466,7 @@ header.header {
     line-height: 1.4;
 }
 
-.stat-value {
-    font-size: 28px;
-    font-weight: 700;
-    color: #333;
-    margin: 0;
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-}
+
 
 /* Inventory Overview */
 .inventory-overview {
