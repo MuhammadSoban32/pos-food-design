@@ -52,6 +52,11 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     position: relative;
 }
+header.header {
+    position: sticky !important;
+    top: 0px;
+    z-index: 23;
+}
 
 /* Hamburger Menu (Hidden on Desktop) */
 #sidebarburger {
@@ -3784,14 +3789,15 @@ body {
 
 @media (max-width: 768px) {
     aside.sidebar {
-        position: absolute;
+        position: fixed;
         z-index: 1;
         top: 64px;
         left: 0px;
         border-radius: 0;
-        width: 100%;
-                transform: translateX(-100%);  /* default hidden */
-
+        width: 20% !important;
+        transform: translateX(-100%);  /* default hidden */
+        max-height: 100vh;
+        overflow: auto;
     }
       .sidebar.open {
         transform: translateX(0);  /* shown */
