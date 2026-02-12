@@ -21,12 +21,30 @@ function initRevenueChart() {
         type: 'bar',
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-            datasets: [{
+            datasets: [
+                {
                 data: [55, 70, 60, 80, 75, 85, 78],
-                backgroundColor: '#FF6B35',
-                borderRadius: 6,
-                barThickness: 18
-            }]
+                backgroundColor: '#2C5976',
+                borderRadius: 16,
+                barThickness: 18,
+                stack: 'total'
+            },
+            {
+                data: [
+                    100-55,
+                    100-70,
+                    100-60,
+                    100-80,
+                    100-75,
+                    100-85,
+                    100-78
+                ],
+                backgroundColor: '#AFB2DC40',
+                borderRadius: 161,
+                barThickness: 18,
+                stack: 'total'
+            }
+                ]
         },
         options: {
             responsive: true,
@@ -42,10 +60,14 @@ function initRevenueChart() {
             scales: {
                 y: {
                     display: false,
-                    beginAtZero: true
+                    beginAtZero: true,
+                    max: 100,
+                    stacked: true,
+                    max: 100
                 },
                 x: {
-                    display: false
+                    display: false,
+                    stacked: true
                 }
             }
         }
@@ -55,38 +77,85 @@ function initRevenueChart() {
 // ==========================================
 // PAYMENT METHOD DONUT CHART
 // ==========================================
+// initPaymentChart() se pehle yeh line add karein
+// Chart.register(ChartDataLabels);
 function initPaymentChart() {
     const ctx = document.getElementById('paymentDonutChart');
     if (!ctx) return;
     
+    const data = [20, 20, 60];
+    const colors = ['#2D6A8F', '#E8A020', '#C67B30'];
+    const labels = ['Cash', 'Card', 'Online'];
+    
     new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ['Cash', 'Card', 'Card', 'Wallet'],
+            labels: labels,
             datasets: [{
-                data: [50, 30, 20, 20],
-                backgroundColor: [
-                    '#4169E1',  // Blue
-                    '#2DD4BF',  // Teal
-                    '#FFB84D',  // Orange
-                    '#E6E6FA'   // Light Purple
-                ],
+                data: data,
+                backgroundColor: colors,
                 borderWidth: 0,
-                cutout: '75%'
+                cutout: '70%'
             }]
         },
         options: {
             responsive: true,
             maintainAspectRatio: true,
             plugins: {
-                legend: {
-                    display: false
-                },
-                tooltip: {
-                    enabled: false
-                }
+                legend: { display: false },
+                tooltip: { enabled: false }
             }
-        }
+        },
+        plugins: [{
+            id: 'customLabels',
+            afterDraw(chart) {
+                const { ctx: c, data } = chart;
+                const meta = chart.getDatasetMeta(0);
+                const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                
+                meta.data.forEach((arc, i) => {
+                    const value = data.datasets[0].data[i];
+                    const percentage = Math.round((value / total) * 100);
+                    if (percentage === 0) return;
+                    
+                    const midAngle = (arc.startAngle + arc.endAngle) / 2;
+                    const labelRadius = arc.outerRadius - 18;
+                    
+                    const x = arc.x + Math.cos(midAngle) * labelRadius;
+                    const y = arc.y + Math.sin(midAngle) * labelRadius;
+                    
+                    const text = percentage + '%';
+                    
+                    c.save();
+                    c.font = 'bold 11px Arial';
+                    
+                    const textWidth = c.measureText(text).width;
+
+                    // ✅ Bara padding aur fixed height for proper pill
+                    const padX = 10;
+                    const padY = 8;
+                    const bgWidth = textWidth + padX * 2;
+                    const bgHeight = 24;
+                    
+                    const bgX = x - bgWidth / 2;
+                    const bgY = y - bgHeight / 2;
+                    
+                    // ✅ roundRect use karo - proper rounded corners
+                    c.beginPath();
+                    c.roundRect(bgX, bgY, bgWidth, bgHeight, bgHeight / 2);
+                    c.fillStyle = 'rgba(210, 210, 210, 0.95)';
+                    c.fill();
+                    
+                    // ✅ Text
+                    c.fillStyle = colors[i];
+                    c.textAlign = 'center';
+                    c.textBaseline = 'middle';
+                    c.fillText(text, x, y);
+                    
+                    c.restore();
+                });
+            }
+        }]
     });
 }
 

@@ -705,8 +705,9 @@ header.header {
 }
 
 .chart-subtitle {
-    font-size: 11px;
+    font-size: 12px;
     color: var(--text-light);
+    font-weight: 500;
 }
 
 .filter-dropdown {
@@ -750,7 +751,7 @@ header.header {
 
 /* Chart Wrappers */
 .chart-wrapper.small {
-    height: 100px;
+    height: 70px;
     position: relative;
 }
 
@@ -795,27 +796,29 @@ header.header {
 }
 
 .donut-legend {
+    display: flex !important;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    /* flex-direction: column; */
+    /* gap: 10px; */
     margin-top: 20px;
+    justify-content: space-between;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    /* gap: 8px; */
 }
 
 .legend-dot {
     width: 10px;
     height: 10px;
-    border-radius: 2px;
+    border-radius: 14px;
     flex-shrink: 0;
 }
 
 .legend-text {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-gray);
 }
 
