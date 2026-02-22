@@ -144,13 +144,31 @@
         </div>
         
     </aside>
-    <div class="container-fluid">
+    <!-- <div class="container-fluid"> -->
 
   <!-- Add New Product Page -->
+<!-- Add New Product - Bootstrap Layout -->
 <main class="main-content">
-    
-    <!-- Top Action Bar -->
-    <div class="product-header">
+    <div class="available-header">
+        <div class="available-header-left">
+            <button class="back-btn">
+                <img src="assets/imgs/Less Than.png" alt="Back" class="back-icon">
+            </button>
+            <div class="available-title-info">
+                <h1 class="available-title">Available Items</h1>
+                <p class="last-update">Last Update: 1 February 2025 at 8:00 PM</p>
+            </div>
+        </div>
+        <div class="available-header-right">
+             <button class="delete-bt">
+                <img src="assets/imgs/Delete.png" alt="Delete" class="delete-icon">
+            </button>
+            <button class="cancel-btn">Save Draft</button>
+            <button class="save-btn">Publish</button>
+        </div>
+    </div>
+    <!-- Top Header -->
+    <!-- <div class="product-header">
         <div class="product-header-left">
             <button class="back-btn">
                 <img src="assets/imgs/Less Than.png" alt="Back" class="back-icon">
@@ -167,224 +185,353 @@
             <button class="save-draft-btn">Save Draft</button>
             <button class="publish-btn">Publish</button>
         </div>
-    </div>
+    </div> -->
 
-    <!-- Main Product Form -->
-    <div class="product-form-wrapper">
-        
-        <!-- Left Column -->
-        <div class="product-left-column">
-            
-            <!-- Main Product Image -->
-            <div class="main-image-section">
-                <div class="main-image-upload">
-                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Product" class="uploaded-main-image">
+    <!-- Bootstrap Container -->
+    <div class="container-fluid px-0">
+
+    <div class="row g-3">
+
+        <!-- muddu6 -->
+        <div class="col-12 col-lg-6">
+
+            <!-- Images Section -->
+            <div class="images-container">
+
+                <div class="main-image-wrapper">
+                    <div class="image-box main-box">
+                        <img src="assets/imgs/pngwing.com (12) 2.png" class="main-burger-img">
+                    </div>
+                    <div class="cover-label">Cover</div>
                 </div>
-                <label class="cover-checkbox">
-                    <input type="checkbox" checked>
-                    <span>Cover</span>
-                </label>
+
+                <div class="thumbnails-grid">
+                    <div class="image-box thumb-box">
+                        <img src="assets/imgs/pngwing.com (12) 2.png">
+                    </div>
+                    <div class="image-box thumb-box">
+                        <img src="assets/imgs/burger3.png">
+                    </div>
+                    <div class="image-box thumb-box">
+                        <img src="assets/imgs/pngwing.com (12) 2.png">
+                    </div>
+                    <div class="image-box thumb-box add-box">
+                        <span class="plus-icon">+</span>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Additional Product Images -->
-            <div class="additional-images-section">
-                <div class="additional-image">
-                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Product variant">
-                </div>
-                <div class="additional-image">
-                    <img src="assets/imgs/burger3.png" alt="Product variant">
-                </div>
-                <div class="additional-image">
-                    <img src="assets/imgs/pngwing.com (12) 2.png" alt="Product variant">
-                </div>
-                <div class="additional-image add-more">
-                    <span class="add-icon">+</span>
-                </div>
-            </div>
+            <!-- Nested Row -->
+            <div class="row g-3 mt-2">
 
-            <!-- Visibility Section -->
-            <div class="visibility-section">
-                <h3 class="section-title">Visibility</h3>
-                <p class="section-description">You can change the visibility of this product for customers</p>
-                <label class="visibility-option">
-                    <input type="radio" name="visibility" checked>
-                    <span class="radio-custom"></span>
-                    <span class="radio-label">Visible</span>
-                </label>
-            </div>
+                <!-- Visibility + Preview -->
+                <div class="col-12 col-sm-6">
 
-            <!-- Preview Section -->
-            <div class="preview-section">
-                <h3 class="section-title">Preview</h3>
-                <p class="section-description">Want to see how your product look like?</p>
-                <button class="preview-btn">Preview</button>
-            </div>
+                    <div class="white-card mb-5 ">
+                        <h3 class="card-heading">Visibility</h3>
+                        <p class="card-text">You can change the visibility of this product for customers</p>
 
-            <!-- Related Items Section -->
-            <div class="related-items-section">
-                <div class="related-items-header">
-                    <h3 class="section-title">Related Items</h3>
-                    <button class="add-related-btn">+</button>
-                </div>
-                <p class="section-description">Add related items to this product</p>
-                
-                <div class="related-items-list">
-                    <!-- Related Item 1 -->
-                    <div class="related-item">
-                        <img src="assets/imgs/pngwing.com (12) 2.png" alt="Comfort Box" class="related-item-img">
-                        <div class="related-item-info">
-                            <p class="related-item-name">Find Comfort Box &...</p>
-                            <p class="related-item-price">$28</p>
-                        </div>
-                        <button class="copy-item-btn">
-                            <img src="assets/imgs/Delete.png" alt="Copy" class="copy-icon">
-                        </button>
+                        <label class="radio-choice">
+                            <input type="radio" name="visibility" checked>
+                            <span class="radio-btn"></span>
+                            <span class="radio-label">Visible</span>
+                        </label>
                     </div>
 
-                    <!-- Related Item 2 -->
-                    <div class="related-item">
-                        <img src="assets/imgs/pngwing.com (12) 2.png" alt="Comfort Box" class="related-item-img">
-                        <div class="related-item-info">
-                            <p class="related-item-name">Find Comfort Box &...</p>
-                            <p class="related-item-price">$28</p>
-                        </div>
-                        <button class="copy-item-btn">
-                            <img src="assets/imgs/Delete.png" alt="Copy" class="copy-icon">
-                        </button>
+                    <div class="white-card ">
+                        <h3 class="card-heading">Preview</h3>
+                        <p class="card-text">Want to see how your product look like?</p>
+                        <button class="preview-button w-100">Preview</button>
                     </div>
 
-                    <!-- Related Item 3 -->
-                    <div class="related-item">
-                        <img src="assets/imgs/pngwing.com (12) 2.png" alt="Comfort Box" class="related-item-img">
-                        <div class="related-item-info">
-                            <p class="related-item-name">Find Comfort Box &...</p>
-                            <p class="related-item-price">$28</p>
-                        </div>
-                        <button class="copy-item-btn">
-                            <img src="assets/imgs/Delete.png" alt="Copy" class="copy-icon">
-                        </button>
-                    </div>
-
-                    <!-- Related Item 4 -->
-                    <div class="related-item">
-                        <img src="assets/imgs/pngwing.com (12) 2.png" alt="Comfort Box" class="related-item-img">
-                        <div class="related-item-info">
-                            <p class="related-item-name">Find Comfort Box &...</p>
-                            <p class="related-item-price">$28</p>
-                        </div>
-                        <button class="copy-item-btn">
-                            <img src="assets/imgs/Delete.png" alt="Copy" class="copy-icon">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Right Column - Product Details -->
-        <div class="product-right-column">
-            
-            <div class="product-details-card">
-                
-                <!-- Header with Status -->
-                <div class="details-card-header">
-                    <div class="details-header-left">
-                        <h2 class="details-title">Product Details</h2>
-                        <p class="details-subtitle">Key info to describe and display your product</p>
-                    </div>
-                    <span class="status-badge">Status: Draft</span>
                 </div>
 
-                <!-- Tabs -->
-                <div class="details-tabs">
-                    <button class="tab-btn active">General</button>
-                    <button class="tab-btn">Advanced</button>
-                </div>
+                <!-- Related Items -->
+                <div class="col-12 col-sm-6">
 
-                <!-- Form Fields -->
-                <form class="product-details-form">
-                    
-                    <!-- Product Name -->
-                    <div class="form-group full-width">
-                        <label class="form-label">Product Name</label>
-                        <input type="text" class="form-input" placeholder="Enter product name">
-                    </div>
+                    <div class="white-card related-items-card h-100">
 
-                    <!-- Status and Brand Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Status</label>
-                            <select class="form-select">
-                                <option>Select status</option>
-                                <option>Active</option>
-                                <option>Inactive</option>
-                            </select>
+                        <div class="card-top-row">
+                            <h3 class="card-heading">Related Items</h3>
+                            <button class="plus-button">+</button>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Brand</label>
-                            <select class="form-select">
-                                <option>Select brand</option>
-                                <option>Brand A</option>
-                                <option>Brand B</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <!-- Category and Subcategory Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Category</label>
-                            <select class="form-select">
-                                <option>Select category</option>
-                                <option>Burger</option>
-                                <option>Pizza</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Subcategory</label>
-                            <select class="form-select">
-                                <option>Select subcategory</option>
-                                <option>Sub A</option>
-                                <option>Sub B</option>
-                            </select>
-                        </div>
-                    </div>
+                        <p class="card-text">Add related items to this product</p>
 
-                    <!-- Price and Discount Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Price</label>
-                            <input type="number" class="form-input" placeholder="0.00">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Discount</label>
-                            <div class="input-with-suffix">
-                                <input type="number" class="form-input" placeholder="0">
-                                <span class="input-suffix">%</span>
+                        <div class="items-list">
+
+                            <div class="item-row">
+                                <img src="assets/imgs/pngwing.com (12) 2.png" class="item-thumb">
+                                <div class="item-info">
+                                    <p class="item-name">Find Comfort Box &...</p>
+                                    <p class="item-price">$28</p>
+                                </div>
                             </div>
+                            <div class="item-row">
+                                <img src="assets/imgs/pngwing.com (12) 2.png" class="item-thumb">
+                                <div class="item-info">
+                                    <p class="item-name">Find Comfort Box &...</p>
+                                    <p class="item-price">$28</p>
+                                </div>
+                            </div>
+                            <div class="item-row">
+                                <img src="assets/imgs/pngwing.com (12) 2.png" class="item-thumb">
+                                <div class="item-info">
+                                    <p class="item-name">Find Comfort Box &...</p>
+                                    <p class="item-price">$28</p>
+                                </div>
+                            </div>
+                            <div class="item-row">
+                                <img src="assets/imgs/pngwing.com (12) 2.png" class="item-thumb">
+                                <div class="item-info">
+                                    <p class="item-name">Find Comfort Box &...</p>
+                                    <p class="item-price">$28</p>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
 
-                    <!-- Description -->
-                    <div class="form-group full-width">
-                        <label class="form-label">Description</label>
-                        <textarea class="form-textarea" rows="5" placeholder="Enter product description"></textarea>
-                    </div>
-
-                </form>
+                </div>
 
             </div>
 
         </div>
 
+        <!-- Product Details -->
+        <div class="col-12 col-lg-6">
+
+    <div class="white-card product-details-card h-100">
+
+        <div class="details-top">
+            <div class="details-left">
+                <h2 class="details-heading">Product Details</h2>
+                <p class="details-subtext">Key info to describe and display your product</p>
+            </div>
+            <span class="status-label">Status: Draft</span>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs-row">
+            <button class="tab-button active" onclick="switchTab('general')">General</button>
+            <button class="tab-button" onclick="switchTab('advanced')">Advanced</button>
+        </div>
+
+        <!-- GENERAL TAB CONTENT -->
+        <div id="generalContent">
+            <form class="details-form">
+
+                <div class="form-field full-width">
+                    <label class="input-label">Product Name</label>
+                    <input type="text" class="text-input">
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6">
+                        <label class="input-label">Status</label>
+                        <select class="select-input">
+                            <option>Select status</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label class="input-label">Brand</label>
+                        <select class="select-input">
+                            <option>Select brand</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-1">
+                    <div class="col-12 col-sm-6">
+                        <label class="input-label">Price</label>
+                        <input type="number" class="text-input">
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label class="input-label">Discount</label>
+                        <input type="number" class="text-input">
+                    </div>
+                </div>
+
+                <div class="form-field mt-3">
+                    <label class="input-label">Description</label>
+                    <textarea class="textarea-input"></textarea>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- ADVANCED TAB CONTENT -->
+        <div id="advancedContent" style="display: none;">
+
+            <!-- Product Modifiers -->
+            <div class="adv-section">
+                <h4 class="adv-title">Product Modifiers</h4>
+                <div class="adv-options">
+                    <label class="adv-option">
+                        <span class="adv-dot active-dot"></span>
+                        Extra Cheese (+ $10)
+                    </label>
+                    <label class="adv-option">
+                        <span class="adv-dot"></span>
+                        Extra Sauce (+ $15)
+                    </label>
+                    <label class="adv-option">
+                        <span class="adv-dot"></span>
+                        No Onion (Free)
+                    </label>
+                </div>
+            </div>
+
+            <hr class="adv-divider">
+
+            <!-- Product Variants -->
+            <div class="adv-section">
+                <h4 class="adv-title">Product Variants</h4>
+                <div class="adv-options">
+                    <label class="adv-option">
+                        <span class="adv-dot active-dot"></span>
+                        Small (+ $5)
+                    </label>
+                    <label class="adv-option">
+                        <span class="adv-dot"></span>
+                        Medium (+ $15)
+                    </label>
+                    <label class="adv-option">
+                        <span class="adv-dot"></span>
+                        Large (+ $10)
+                    </label>
+                </div>
+            </div>
+
+            <hr class="adv-divider">
+
+            <!-- Choose Modifiers / Variations -->
+            <div class="adv-variations-box">
+                <div class="adv-variations-header">
+                    <h4 class="adv-title mb-0">Choose Modifiers / Variations</h4>
+                    <button class="adv-edit-btn">✏️</button>
+                </div>
+
+                <!-- Table Header -->
+                <div class="row g-2 adv-table-head mt-2">
+                    <div class="col">Name<span class="adv-required">*</span></div>
+                    <div class="col">Description</div>
+                    <div class="col">Price<span class="adv-required">*</span></div>
+                    <div class="col">Type<span class="adv-required">*</span></div>
+                    <div class="col">Group<span class="adv-required">*</span></div>
+                    <div class="col-1"></div>
+                </div>
+
+                <!-- Table Row 1 -->
+                <div class="row g-2 adv-table-row mt-1">
+                    <div class="col">
+                        <input type="text" class="adv-input" placeholder="Enter your name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="adv-input" placeholder="Add description">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="adv-input" placeholder="Add value">
+                    </div>
+                    <div class="col">
+                        <select class="adv-select">
+                            <option>Radio</option>
+                            <option>Checkbox</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="adv-select">
+                            <option>Select</option>
+                            <option>Modifier</option>
+                            <option>Variation</option>
+                        </select>
+                    </div>
+                    <div class="col-1">
+                        <button class="adv-add-btn">+</button>
+                    </div>
+                </div>
+
+                <!-- Table Row 2 - Expanded dropdowns -->
+                <div class="row g-2 adv-table-row mt-1">
+                    <div class="col">
+                        <input type="text" class="adv-input" placeholder="Enter your name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="adv-input" placeholder="Add description">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="adv-input" placeholder="Add value">
+                    </div>
+                    <div class="col">
+                        <div class="adv-type-box">
+                            <label class="adv-radio-opt">
+                                <input type="radio" name="type2" checked> Radio
+                            </label>
+                            <label class="adv-radio-opt">
+                                <input type="radio" name="type2"> Checkbox
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="adv-group-box">
+                            <span class="adv-tag modifier">Modifier</span>
+                            <span class="adv-tag variation">Variation</span>
+                        </div>
+                    </div>
+                    <div class="col-1 d-flex gap-1">
+                        <button class="adv-add-btn">+</button>
+                        <button class="adv-remove-btn">-</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Create Button -->
+            <div class="d-flex justify-content-end mt-4">
+                <button class="adv-create-btn">Create</button>
+            </div>
+
+        </div>
+
     </div>
+
+</div>
+
+    </div>
+
+</div>
+
+
+
+    <!-- </div> -->
 
 </main>
-    </div>
+    <!-- </div> -->
 </div>
 
     <!-- JavaScript for Hamburger -->
     <script src="assets/javascript/custom.js"></script>
+    <script>
+        function switchTab(tab) {
+    const generalContent = document.getElementById('generalContent');
+    const advancedContent = document.getElementById('advancedContent');
+    const tabBtns = document.querySelectorAll('.tab-button');
+
+    tabBtns.forEach(btn => btn.classList.remove('active'));
+
+    if (tab === 'general') {
+        generalContent.style.display = 'block';
+        advancedContent.style.display = 'none';
+        tabBtns[0].classList.add('active');
+    } else {
+        generalContent.style.display = 'none';
+        advancedContent.style.display = 'block';
+        tabBtns[1].classList.add('active');
+    }
+}
+    </script>
 </body>
 </html>
     

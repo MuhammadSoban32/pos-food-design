@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy POS - Header</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Chart.js Library -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script> -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+
+        <button class="hamburger sidebar-burger" id="sidebarburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+         <button class="hamburger" id="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <!-- Logo -->
+        <div class="logo">
+            <span class="logo-text">Easy <span class="logo-highlight">POS</span></span>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links" id="navLinks">
+            <a href="#" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Order List</a>
+            <a href="#" class="nav-link">History</a>
+            <a href="#" class="nav-link">Bills</a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="header-actions">
+            <button class="btn-new-order">New Order</button>
+
+            <div class="notification-btn">
+                <img src="/assets/imgs/bellicon.png" alt="Notifications" class="notification-icon">
+            </div>
+
+            <div class="user-profile">
+                <img src="/assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-wrapper">
+
+        <aside class="sidebar">
+        
+        <!-- Navigation Menu -->
+        <nav class="sidebar-nav">
+            
+            <!-- Home - Active with Green Background -->
+            <a href="#" class="nav-item active">
+                <div class="nav-icon-box">
+                    <img src="/assets/imgs/Home Page.png" alt="Home" class="nav-icon">
+                </div>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <!-- Customer -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="/assets/imgs/orders.png" alt="Order Cancel" class="nav-icon">
+                </div>
+                <span class="nav-text">Order Cancel</span>
+            </a>
+            
+            <!-- Tables -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="/assets/imgs/Order History.png" alt="Order HIstory" class="nav-icon">
+                </div>
+                <span class="nav-text">Order History</span>
+            </a>
+            
+            <!-- Cashier -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="/assets/imgs/Settings.png" alt="Settings" class="nav-icon">
+                </div>
+                <span class="nav-text">Settings</span>
+            </a>
+            
+            <!-- Orders -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="/assets/imgs/Customer.png" alt="Customers" class="nav-icon">
+                </div>
+                <span class="nav-text">Customers</span>
+            </a>
+            
+            <!-- Reports -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="/assets/imgs/tablet.png" alt="Tablets" class="nav-icon">
+                </div>
+                <span class="nav-text">Tablets</span>
+            </a>
+            
+            <!-- Settings -->
+
+            
+        </nav>
+        
+        <!-- User Profile Section at Bottom -->
+        <div class="sidebar-footer">
+            
+            <!-- User Avatar -->
+            <div class="user-avatar-wrapper">
+                <img src="/assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+            
+            <!-- Logout -->
+            <a href="#" class="nav-item logout">
+                <div class="nav-icon-box">
+                    <img src="/assets/imgs/Logout.png" alt="Logout" class="nav-icon">
+                </div>
+                <span class="nav-text">Logout</span>
+            </a>
+            
+        </div>
+        
+    </aside>
+
+    <!-- Add Category Page -->
+<main class="main-content">
+    
+    <!-- Page Header -->
+    <div class="ac-page-header">
+        <h1 class="ac-page-title">Add Category</h1>
+        <div class="ac-header-actions">
+            <button class="ac-cancel-btn">Cancel</button>
+            <button class="ac-save-btn">Save</button>
+        </div>
+    </div>
+
+    <!-- Add Category Form -->
+    <div class="ac-form-section">
+        <div class="row g-4">
+            
+            <!-- Category Name -->
+            <div class="col-md-6">
+                <div class="ac-form-group">
+                    <label class="ac-form-label">Category Name</label>
+                    <input type="text" class="ac-form-input" placeholder="">
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="col-md-6">
+                <div class="ac-form-group">
+                    <label class="ac-form-label">Description</label>
+                    <textarea class="ac-form-textarea" rows="4" placeholder=""></textarea>
+                </div>
+            </div>
+
+            <!-- Status -->
+            <div class="col-md-6">
+                <div class="ac-form-group">
+                    <label class="ac-form-label">Status</label>
+                    <select class="ac-form-select">
+                        <option value="">Select status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <!-- Status Options Display (like screenshot) -->
+                <!-- <div class="ac-status-display">
+                    <div class="ac-status-option active-opt">
+                        <span class="ac-status-icon">⚠️</span> Active
+                    </div>
+                    <div class="ac-status-option inactive-opt">
+                        <span class="ac-status-icon">⚠️</span> Inactive
+                    </div>
+                </div> -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Available Category Section -->
+    <div class="ac-table-section">
+        
+        <!-- Section Header -->
+        <div class="ac-section-header">
+            <h2 class="ac-section-title">Available Category</h2>
+            <div class="ac-section-actions">
+                <div class="ac-search-wrapper">
+                    <img src="/assets/imgs/Search.png" alt="Search" class="ac-search-icon">
+                    <input type="text" class="ac-search-input" placeholder="Search...">
+                </div>
+                <button class="ac-filter-btn">Filter</button>
+            </div>
+        </div>
+
+        <!-- Category Table -->
+        <div class="ac-table-wrapper">
+            <table class="ac-table">
+                <thead>
+                    <tr class="ac-thead-row">
+                        <th class="ac-th">S. No</th>
+                        <th class="ac-th">Category Name</th>
+                        <th class="ac-th">Description</th>
+                        <th class="ac-th">Status</th>
+                        <th class="ac-th">Created At</th>
+                        <th class="ac-th">Created By</th>
+                        <th class="ac-th">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <!-- Row 1 -->
+                    <tr class="ac-tbody-row">
+                        <td class="ac-td">1</td>
+                        <td class="ac-td">Burger</td>
+                        <td class="ac-td">It is delicious taste</td>
+                        <td class="ac-td">
+                            <span class="ac-status-badge active-badge">Active</span>
+                        </td>
+                        <td class="ac-td">Feb 14, 2026</td>
+                        <td class="ac-td">Faiz Khan</td>
+                        <td class="ac-td">
+                            <div class="ac-action-btns">
+                                <button class="ac-edit-btn">
+                                    <img src="/assets/imgs/Pencil.png" alt="Edit" class="ac-icon">
+                                </button>
+                                <button class="ac-delete-btn">
+                                    <img src="/assets/imgs/Delete.png" alt="Delete" class="ac-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr class="ac-tbody-row">
+                        <td class="ac-td">2</td>
+                        <td class="ac-td">Burger</td>
+                        <td class="ac-td">It is delicious taste</td>
+                        <td class="ac-td">
+                            <span class="ac-status-badge not-active-badge">Not Active</span>
+                        </td>
+                        <td class="ac-td">Feb 14, 2026</td>
+                        <td class="ac-td">Faiz Khan</td>
+                        <td class="ac-td">
+                            <div class="ac-action-btns">
+                                <button class="ac-edit-btn">
+                                    <img src="/assets/imgs/Pencil.png" alt="Edit" class="ac-icon">
+                                </button>
+                                <button class="ac-delete-btn">
+                                    <img src="/assets/imgs/Delete.png" alt="Delete" class="ac-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr class="ac-tbody-row">
+                        <td class="ac-td">3</td>
+                        <td class="ac-td">Burger</td>
+                        <td class="ac-td">It is delicious taste</td>
+                        <td class="ac-td">
+                            <span class="ac-status-badge not-active-badge">Not Active</span>
+                        </td>
+                        <td class="ac-td">Feb 14, 2026</td>
+                        <td class="ac-td">Faiz Khan</td>
+                        <td class="ac-td">
+                            <div class="ac-action-btns">
+                                <button class="ac-edit-btn">
+                                    <img src="/assets/imgs/Pencil.png" alt="Edit" class="ac-icon">
+                                </button>
+                                <button class="ac-delete-btn">
+                                    <img src="/assets/imgs/Delete.png" alt="Delete" class="ac-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 4 -->
+                    <tr class="ac-tbody-row">
+                        <td class="ac-td">4</td>
+                        <td class="ac-td">Burger</td>
+                        <td class="ac-td">It is delicious taste</td>
+                        <td class="ac-td">
+                            <span class="ac-status-badge not-active-badge">Not Active</span>
+                        </td>
+                        <td class="ac-td">Feb 14, 2026</td>
+                        <td class="ac-td">Faiz Khan</td>
+                        <td class="ac-td">
+                            <div class="ac-action-btns">
+                                <button class="ac-edit-btn">
+                                    <img src="/assets/imgs/Pencil.png" alt="Edit" class="ac-icon">
+                                </button>
+                                <button class="ac-delete-btn">
+                                    <img src="/assets/imgs/Delete.png" alt="Delete" class="ac-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Row 5 -->
+                    <tr class="ac-tbody-row">
+                        <td class="ac-td">5</td>
+                        <td class="ac-td">Burger</td>
+                        <td class="ac-td">It is delicious taste</td>
+                        <td class="ac-td">
+                            <span class="ac-status-badge not-active-badge">Not Active</span>
+                        </td>
+                        <td class="ac-td">Feb 14, 2026</td>
+                        <td class="ac-td">Faiz Khan</td>
+                        <td class="ac-td">
+                            <div class="ac-action-btns">
+                                <button class="ac-edit-btn">
+                                    <img src="/assets/imgs/Pencil.png" alt="Edit" class="ac-icon">
+                                </button>
+                                <button class="ac-delete-btn">
+                                    <img src="/assets/imgs/Delete.png" alt="Delete" class="ac-icon">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</main>
+
+</div>
+
+    <!-- JavaScript for Hamburger -->
+    <script src="/assets/javascript/custom.js"></script>
+    <script>
+        function switchTab(tab) {
+    const generalContent = document.getElementById('generalContent');
+    const advancedContent = document.getElementById('advancedContent');
+    const tabBtns = document.querySelectorAll('.tab-button');
+
+    tabBtns.forEach(btn => btn.classList.remove('active'));
+
+    if (tab === 'general') {
+        generalContent.style.display = 'block';
+        advancedContent.style.display = 'none';
+        tabBtns[0].classList.add('active');
+    } else {
+        generalContent.style.display = 'none';
+        advancedContent.style.display = 'block';
+        tabBtns[1].classList.add('active');
+    }
+}
+    </script>
+</body>
+</html>
+    
+
+  

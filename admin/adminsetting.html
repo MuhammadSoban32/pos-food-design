@@ -19,10 +19,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
+
 <body>
+    
     <!-- Header -->
     <header class="header">
-        
+
+        <button class="hamburger sidebar-burger" id="sidebarburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
          <button class="hamburger" id="hamburger">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -136,12 +144,10 @@
         </div>
         
     </aside>
-    <div class="container-fluid">
-
-        <!-- Add Users Form -->
-<main class="main-content add-users-screen">
+    <!-- Settings Page - CORRECT -->
+<main class="main-content">
     
-    <!-- Top Header -->
+    <!-- Settings Header -->
     <div class="form-header">
         <h1 class="form-title">Add Users</h1>
         <div class="form-actions">
@@ -150,137 +156,153 @@
         </div>
     </div>
 
-    <!-- Form Layout -->
-    <div class="form-layout">
-        
-        <!-- Left Column - Photo Upload -->
-        <div class="form-left">
-            <div class="photo-upload-box">
-                <div class="upload-icon-wrapper">
-                    <img src="/assets/imgs/Downloads.png" alt="Upload" class="upload-icon">
-                </div>
-                <p class="upload-text">Upload Photo</p>
-                <input type="file" id="photoUpload" accept="image/*" style="display: none;">
-            </div>
-        </div>
-
-        <!-- Right Column - Form Fields -->
-        <div class="form-right">
+    <!-- Settings Content -->
+    <div class="container-fluid px-0">
+        <div class="row g-4">
             
-            <!-- User Details Section -->
-            <div class="form-section">
-                <h3 class="section-title">User Details</h3>
-                
-                <div class="form-fields">
+            <!-- LEFT COLUMN - Profile Photo -->
+            <div class="col-lg-2 col-md-3">
+                <div class="settings-photo-box">
+                    <img src="/assets/imgs/Rectangle 120.png" alt="Profile" class="settings-profile-photo">
+                    <button class="settings-upload-photo-btn">
+                        <img src="/assets/imgs/Downloads (1).png" alt="Upload" class="settings-upload-icon-img">
+                        Upload Photo
+                    </button>
+                </div>
+            </div>
+
+            <!-- MIDDLE COLUMN - User Details -->
+            <div class="col-lg-5 col-md-4">
+                <div class="settings-form-section">
+                    <h3 class="settings-section-heading">User Details</h3>
+
                     <!-- User ID -->
-                    <div class="form-field">
-                        <label class="field-label">User ID</label>
-                        <input type="text" class="field-input" placeholder="123 456 789">
+                    <div class="settings-input-group">
+                        <label class="settings-label">User ID</label>
+                        <input type="text" class="settings-input" value="123 456 789" readonly>
                     </div>
 
                     <!-- Full Name -->
-                    <div class="form-field">
-                        <label class="field-label">Full Name</label>
-                        <input type="text" class="field-input" placeholder="Anas Ahmed Khan">
+                    <div class="settings-input-group">
+                        <label class="settings-label">Full Name</label>
+                        <input type="text" class="settings-input" placeholder="Anas Ahmed Khan">
                     </div>
 
                     <!-- CNIC -->
-                    <div class="form-field">
-                        <label class="field-label">CNIC</label>
-                        <input type="text" class="field-input" placeholder="41304 4325 78900">
+                    <div class="settings-input-group">
+                        <label class="settings-label">CNIC</label>
+                        <input type="text" class="settings-input" placeholder="43104 4526 78900">
                     </div>
 
-                    <!-- Password -->
-                    <div class="form-field">
-                        <label class="field-label">City Name</label>
-                        <input type="text" class="field-input" placeholder="Hyderabad">
+                    <!-- City Name -->
+                    <div class="settings-input-group">
+                        <label class="settings-label">City Name</label>
+                        <input type="text" class="settings-input" placeholder="Hyderabad">
                     </div>
 
                     <!-- Contact Number -->
-                    <div class="form-field">
-                        <label class="field-label">Contact Number</label>
-                        <input type="text" class="field-input" placeholder="0300 13467 987">
+                    <div class="settings-input-group">
+                        <label class="settings-label">Contact Number</label>
+                        <input type="text" class="settings-input" placeholder="+923 1234 567">
                     </div>
+
                 </div>
             </div>
 
-            <!-- Personal Details Section -->
-            <div class="form-section">
-                <h3 class="section-title">Personal Details</h3>
-                
-                <div class="form-fields">
+            <!-- RIGHT COLUMN - Personal Details -->
+            <div class="col-lg-5 col-md-5">
+                <div class="settings-form-section">
+                    <h3 class="settings-section-heading">Personal Details</h3>
+
                     <!-- Email -->
-                    <div class="form-field">
-                        <label class="field-label">Email</label>
-                        <input type="email" class="field-input" placeholder="anaskhan@gmail.com">
+                    <div class="settings-input-group">
+                        <label class="settings-label">Email</label>
+                        <input type="email" class="settings-input" placeholder="anaskhan@gmail.com">
                     </div>
 
                     <!-- Home Address -->
-                    <div class="form-field">
-                        <label class="field-label">Home Address</label>
-                        <input type="text" class="field-input" placeholder="Street number 4103">
+                    <div class="settings-input-group">
+                        <label class="settings-label">Home Address</label>
+                        <input type="text" class="settings-input" placeholder="Street number 4103">
                     </div>
 
                     <!-- Role -->
-                    <div class="form-field">
-                        <label class="field-label">Role</label>
-                        <select class="field-select">
-                            <option value="">Select Role</option>
-                            <option value="super-admin">Super Admin</option>
-                            <option value="sales-person">Sales Person</option>
-                            <option value="manager">Manager</option>
+                    <div class="settings-input-group">
+                        <label class="settings-label">Role</label>
+                        <select class="settings-select settings-role-select">
+                            <option>Super Admin</option>
+                            <option>Sales Person</option>
+                            <option>Manager</option>
                         </select>
+                        <!-- Dropdown Options Display -->
+                        <div class="settings-role-dropdown" style="display: none;">
+                            <div class="settings-role-option active">Super Admin</div>
+                            <div class="settings-role-option">Sales Person</div>
+                            <div class="settings-role-option">Manager</div>
+                        </div>
                     </div>
-                    <div class="form-field">
-                        <label class="field-label">Status</label>
-                        <select class="field-select">
-                            <option value="super-admin">Active</option>
-                            <option value="sales-person">Inactive</option>
+
+                    <!-- Status -->
+                    <div class="settings-input-group">
+                        <label class="settings-label">Status</label>
+                        <select class="settings-select">
+                            <option>Active</option>
+                            <option>Inactive</option>
                         </select>
+                        <!-- Dropdown Options Display -->
+                        <div class="settings-status-dropdown" style="display: none;">
+                            <div class="settings-status-option">
+                                <span class="settings-status-icon active-icon">👤</span> Active
+                            </div>
+                            <div class="settings-status-option">
+                                <span class="settings-status-icon inactive-icon">👤</span> Inactive
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-field">
-                        <label class="field-label">Password</label>
-                        <input type="password" class="field-input" placeholder="">
+
+                    <!-- Password -->
+                    <div class="settings-input-group">
+                        <label class="settings-label">Password</label>
+                        <div class="settings-password-container">
+                            <input type="password" class="settings-input" placeholder="••••••••">
+                            <button class="settings-eye-btn">
+                                <img src="/assets/imgs/Hide.png" alt="Show" class="settings-eye-img">
+                            </button>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
         </div>
-
     </div>
-
-    <!-- Form Footer Buttons -->
-    <!-- <div class="form-footer">
-        <button class="footer-cancel-btn">Cancel</button>
-        <button class="footer-save-btn">Save</button>
-    </div> -->
 
 </main>
 
-    </div>
 </div>
 
     <!-- JavaScript for Hamburger -->
-
-
+    <script src="/assets/javascript/custom.js"></script>
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+        function switchTab(tab) {
+    const generalContent = document.getElementById('generalContent');
+    const advancedContent = document.getElementById('advancedContent');
+    const tabBtns = document.querySelectorAll('.tab-button');
 
-        hamburger.addEventListener('click', function () {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+    tabBtns.forEach(btn => btn.classList.remove('active'));
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function (event) {
-            if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
+    if (tab === 'general') {
+        generalContent.style.display = 'block';
+        advancedContent.style.display = 'none';
+        tabBtns[0].classList.add('active');
+    } else {
+        generalContent.style.display = 'none';
+        advancedContent.style.display = 'block';
+        tabBtns[1].classList.add('active');
+    }
+}
+
     </script>
-
 </body>
 </html>
     

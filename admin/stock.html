@@ -155,15 +155,8 @@
             </div>
         </div>
         <div class="inventory-header-right">
-            <button class="action-btn view-btn">
-                <img src="/assets/imgs/Hide.png" alt="View" class="action-icon">
-            </button>
-            <button class="action-btn edit-btn">
-                <img src="/assets/imgs/Pencil.png" alt="Edit" class="action-icon">
-            </button>
-            <button class="action-btn delete-btn">
-                <img src="/assets/imgs/Delete.png" alt="Delete" class="action-icon">
-            </button>
+           <button class="cancel-btn stock1">Import Excel</button>
+            <button class="save-btn stock2">Add Item</button>
         </div>
     </div>
 
@@ -173,7 +166,7 @@
         <!-- Total Items Card -->
         <div class="stat-card">
             <div class="stat-icon yellow-icon">
-                <img src="" alt="Total Items" class="icon-img">
+                <img src="/assets/imgs/Downloads.png" alt="Total Items" class="icon-img">
             </div>
             <div class="stat-info">
                 <h3 class="stat-title">Total Items</h3>
@@ -185,7 +178,7 @@
         <!-- Low Stock Items Card -->
         <div class="stat-card">
             <div class="stat-icon blue-icon">
-                <img src="" alt="Low Stock" class="icon-img">
+                <img src="/assets/imgs/Combo Chart.png" alt="Low Stock" class="icon-img">
             </div>
             <div class="stat-info">
                 <h3 class="stat-title">Low Stock Items</h3>
@@ -197,7 +190,7 @@
         <!-- Expired Items Card -->
         <div class="stat-card">
             <div class="stat-icon orange-icon">
-                <img src="" alt="Expired" class="icon-img">
+                <img src="/assets/imgs/Clock.png" alt="Expired" class="icon-img">
             </div>
             <div class="stat-info">
                 <h3 class="stat-title">Expired Items</h3>
@@ -209,7 +202,7 @@
         <!-- Out of Stock Items Card -->
         <div class="stat-card">
             <div class="stat-icon gray-icon">
-                <img src="" alt="Out of Stock" class="icon-img">
+                <img src="/assets/imgs/Open Parcel.png" alt="Out of Stock" class="icon-img">
             </div>
             <div class="stat-info">
                 <h3 class="stat-title">Out of Stock Items</h3>
@@ -242,11 +235,11 @@
                 <thead>
                     <tr>
                         <th class="th-yellow">Item Name</th>
-                        <th class="th-orange">Image</th>
-                        <th class="th-yellow">Quantity</th>
-                        <th class="th-orange">Storage Location</th>
-                        <th class="th-yellow">Last Checked</th>
-                        <th class="th-orange">Status</th>
+                        <th class="th-orange">Category</th>
+                        <th class="th-yellow">Unit</th>
+                        <th class="th-orange">Current Stock</th>
+                        <th class="th-yellow">Cost price</th>
+                        <th class="th-orange">Alert Quantity</th>
                         <th class="th-yellow">Action</th>
                     </tr>
                 </thead>
@@ -255,14 +248,14 @@
                     <!-- Row 1 -->
                     <tr>
                         <td class="item-name">Burger</td>
-                        <td class="item-image">
-                            <img src="/assets/imgs/pngwing.com (12) 2.png" alt="Burger" class="product-thumb">
+                        <td class="item-category">
+                            meat
                         </td>
-                        <td class="item-quantity">3</td>
-                        <td class="item-location">Present</td>
-                        <td class="item-date">02 Feb 2024</td>
+                        <td class="item-quantity">kg</td>
+                        <td class="item-location">50</td>
+                        <td class="item-date">650</td>
                         <td class="item-status">
-                            <span class="status-badge low-stock">Low Stock</span>
+                            <span class="status-badge low-stock">5</span>
                         </td>
                         <td class="item-actions">
                             <button class="table-action-btn edit">
@@ -277,14 +270,14 @@
                     <!-- Row 2 -->
                     <tr>
                         <td class="item-name">Pizza</td>
-                        <td class="item-image">
-                            <img src="/assets/imgs/pizza.png" alt="Pizza" class="product-thumb">
+                       <td class="item-category">
+                            meat
                         </td>
-                        <td class="item-quantity">8</td>
-                        <td class="item-location">Present</td>
-                        <td class="item-date">02 Feb 2024</td>
+                        <td class="item-quantity">kg</td>
+                        <td class="item-location">50</td>
+                        <td class="item-date">650</td>
                         <td class="item-status">
-                            <span class="status-badge low-stock">Low Stock</span>
+                            <span class="status-badge low-stock">5</span>
                         </td>
                         <td class="item-actions">
                             <button class="table-action-btn edit">
@@ -299,14 +292,14 @@
                     <!-- Row 3 -->
                     <tr>
                         <td class="item-name">BBQ</td>
-                        <td class="item-image">
-                            <img src="/assets/imgs/bbq.png" alt="BBQ" class="product-thumb">
+                       <td class="item-category">
+                            meat
                         </td>
-                        <td class="item-quantity">3</td>
-                        <td class="item-location">Present</td>
-                        <td class="item-date">02 Feb 2024</td>
+                        <td class="item-quantity">kg</td>
+                        <td class="item-location">50</td>
+                        <td class="item-date">650</td>
                         <td class="item-status">
-                            <span class="status-badge low-stock">Low Stock</span>
+                            <span class="status-badge low-stock">5</span>
                         </td>
                         <td class="item-actions">
                             <button class="table-action-btn edit">
@@ -321,14 +314,14 @@
                     <!-- Row 4 -->
                     <tr>
                         <td class="item-name">Samosa</td>
-                        <td class="item-image">
-                            <img src="/assets/imgs/samosa.png" alt="Samosa" class="product-thumb">
+                          <td class="item-category">
+                            meat
                         </td>
-                        <td class="item-quantity">8</td>
-                        <td class="item-location">Present</td>
-                        <td class="item-date">02 Feb 2024</td>
+                        <td class="item-quantity">kg</td>
+                        <td class="item-location">50</td>
+                        <td class="item-date">650</td>
                         <td class="item-status">
-                            <span class="status-badge low-stock">Low Stock</span>
+                            <span class="status-badge low-stock">5</span>
                         </td>
                         <td class="item-actions">
                             <button class="table-action-btn edit">

@@ -19,10 +19,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+
+
 <body>
+    
     <!-- Header -->
     <header class="header">
-        
+
+        <button class="hamburger sidebar-burger" id="sidebarburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
          <button class="hamburger" id="hamburger">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
@@ -136,151 +144,132 @@
         </div>
         
     </aside>
-    <div class="container-fluid">
 
-        <!-- Add Users Form -->
-<main class="main-content add-users-screen">
+    <!-- Add Inventory Page -->
+<main class="main-content">
     
-    <!-- Top Header -->
-    <div class="form-header">
-        <h1 class="form-title">Add Users</h1>
-        <div class="form-actions">
-           <button class="footer-cancel-btn">Cancel</button>
-        <button class="footer-save-btn">Save</button>
+    <!-- Page Header -->
+    <div class="ai-page-header">
+        <h1 class="ai-page-title">Add Inventory</h1>
+        <div class="ai-header-actions">
+            <button class="ai-cancel-btn">Cancel</button>
+            <button class="ai-save-btn">Save</button>
         </div>
     </div>
 
-    <!-- Form Layout -->
-    <div class="form-layout">
-        
-        <!-- Left Column - Photo Upload -->
-        <div class="form-left">
-            <div class="photo-upload-box">
-                <div class="upload-icon-wrapper">
-                    <img src="/assets/imgs/Downloads.png" alt="Upload" class="upload-icon">
-                </div>
-                <p class="upload-text">Upload Photo</p>
-                <input type="file" id="photoUpload" accept="image/*" style="display: none;">
-            </div>
-        </div>
-
-        <!-- Right Column - Form Fields -->
-        <div class="form-right">
+    <!-- Inventory Form -->
+    <div class="ai-form-container">
+        <div class="row g-4">
             
-            <!-- User Details Section -->
-            <div class="form-section">
-                <h3 class="section-title">User Details</h3>
-                
-                <div class="form-fields">
-                    <!-- User ID -->
-                    <div class="form-field">
-                        <label class="field-label">User ID</label>
-                        <input type="text" class="field-input" placeholder="123 456 789">
+            <!-- LEFT - Upload Item Section -->
+            <div class="col-lg-3 col-md-4">
+                <div class="ai-upload-box">
+                    <div class="ai-upload-icon">
+                        <img src="/assets/imgs/Downloads.png" alt="Upload" class="ai-folder-icon">
                     </div>
-
-                    <!-- Full Name -->
-                    <div class="form-field">
-                        <label class="field-label">Full Name</label>
-                        <input type="text" class="field-input" placeholder="Anas Ahmed Khan">
-                    </div>
-
-                    <!-- CNIC -->
-                    <div class="form-field">
-                        <label class="field-label">CNIC</label>
-                        <input type="text" class="field-input" placeholder="41304 4325 78900">
-                    </div>
-
-                    <!-- Password -->
-                    <div class="form-field">
-                        <label class="field-label">City Name</label>
-                        <input type="text" class="field-input" placeholder="Hyderabad">
-                    </div>
-
-                    <!-- Contact Number -->
-                    <div class="form-field">
-                        <label class="field-label">Contact Number</label>
-                        <input type="text" class="field-input" placeholder="0300 13467 987">
-                    </div>
+                    <p class="ai-upload-text">Upload Item</p>
                 </div>
             </div>
 
-            <!-- Personal Details Section -->
-            <div class="form-section">
-                <h3 class="section-title">Personal Details</h3>
-                
-                <div class="form-fields">
-                    <!-- Email -->
-                    <div class="form-field">
-                        <label class="field-label">Email</label>
-                        <input type="email" class="field-input" placeholder="anaskhan@gmail.com">
+            <!-- RIGHT - Form Fields -->
+            <div class="col-lg-9 col-md-8">
+                <div class="ai-fields-wrapper">
+                    
+                    <div class="row g-4">
+                        
+                        <!-- Item Name -->
+                        <div class="col-md-6">
+                            <div class="ai-field-group">
+                                <label class="ai-field-label">Item Name</label>
+                                <input type="text" class="ai-field-input" placeholder="">
+                            </div>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="col-md-6">
+                            <div class="ai-field-group">
+                                <label class="ai-field-label">Category</label>
+                                <select class="ai-field-select">
+                                    <option value="">Select category</option>
+                                    <option value="burger">Burger</option>
+                                    <option value="pizza">Pizza</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Unit -->
+                        <div class="col-md-6">
+                            <div class="ai-field-group">
+                                <label class="ai-field-label">Unit</label>
+                                <input type="text" class="ai-field-input" placeholder="">
+                            </div>
+                        </div>
+
+                        <!-- Current Stock -->
+                        <div class="col-md-6">
+                            <div class="ai-field-group">
+                                <label class="ai-field-label">Current Stock</label>
+                                <input type="number" class="ai-field-input" placeholder="">
+                            </div>
+                        </div>
+
+                        <!-- Cost Price -->
+                        <div class="col-md-6">
+                            <div class="ai-field-group">
+                                <label class="ai-field-label">Cost Price</label>
+                                <input type="number" class="ai-field-input" placeholder="">
+                            </div>
+                        </div>
+
+                        <!-- Alert Quantity -->
+                        <div class="col-md-6">
+                            <div class="ai-field-group">
+                                <label class="ai-field-label">Alert Quantity</label>
+                                <input type="number" class="ai-field-input" placeholder="">
+                            </div>
+                        </div>
+
+                        <!-- Supplier Name -->
+                        <div class="col-md-6">
+                            <div class="ai-field-group">
+                                <label class="ai-field-label">Supplier Name</label>
+                                <input type="text" class="ai-field-input" placeholder="">
+                            </div>
+                        </div>
+
                     </div>
 
-                    <!-- Home Address -->
-                    <div class="form-field">
-                        <label class="field-label">Home Address</label>
-                        <input type="text" class="field-input" placeholder="Street number 4103">
-                    </div>
-
-                    <!-- Role -->
-                    <div class="form-field">
-                        <label class="field-label">Role</label>
-                        <select class="field-select">
-                            <option value="">Select Role</option>
-                            <option value="super-admin">Super Admin</option>
-                            <option value="sales-person">Sales Person</option>
-                            <option value="manager">Manager</option>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label class="field-label">Status</label>
-                        <select class="field-select">
-                            <option value="super-admin">Active</option>
-                            <option value="sales-person">Inactive</option>
-                        </select>
-                    </div>
-                    <div class="form-field">
-                        <label class="field-label">Password</label>
-                        <input type="password" class="field-input" placeholder="">
-                    </div>
                 </div>
             </div>
 
         </div>
-
     </div>
-
-    <!-- Form Footer Buttons -->
-    <!-- <div class="form-footer">
-        <button class="footer-cancel-btn">Cancel</button>
-        <button class="footer-save-btn">Save</button>
-    </div> -->
 
 </main>
 
-    </div>
 </div>
 
     <!-- JavaScript for Hamburger -->
-
-
+    <script src="/assets/javascript/custom.js"></script>
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+        function switchTab(tab) {
+    const generalContent = document.getElementById('generalContent');
+    const advancedContent = document.getElementById('advancedContent');
+    const tabBtns = document.querySelectorAll('.tab-button');
 
-        hamburger.addEventListener('click', function () {
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
+    tabBtns.forEach(btn => btn.classList.remove('active'));
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function (event) {
-            if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
-        });
+    if (tab === 'general') {
+        generalContent.style.display = 'block';
+        advancedContent.style.display = 'none';
+        tabBtns[0].classList.add('active');
+    } else {
+        generalContent.style.display = 'none';
+        advancedContent.style.display = 'block';
+        tabBtns[1].classList.add('active');
+    }
+}
     </script>
-
 </body>
 </html>
     
