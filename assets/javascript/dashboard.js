@@ -327,7 +327,10 @@ function initCustomerChart() {
                         font: {
                             size: 10
                         },
-                        stepSize: 5
+                        stepSize: 5,
+                        callback: function(value) {
+                            return value + ' h';
+                        }
                     },
                     border: {
                         display: false
@@ -338,7 +341,7 @@ function initCustomerChart() {
                         display: false
                     },
                     ticks: {
-                        color: '#9CA3AF',
+                        color: '#000000',
                         font: {
                             size: 10
                         }

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESERO Receipt</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; gap: 0; }
+    .receipt { box-shadow: none; page-break-after: always; }
+    .receipt:last-child { page-break-after: avoid; }
+    .no-print { display: none; }
+
+    /* Thermal: force black ink only — no colors, no backgrounds */
+    * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+
+    /* Thermal page: 80mm wide continuous roll */
+    @page {
+      size: 80mm auto;
+      margin: 0;
+    }
+  }
+
+  .print-btn {
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .print-btn:hover { background: #333; }
+
+  /* 80mm = ~302px at 96dpi, but we use mm for print accuracy */
+  .receipt {
+    width: 80mm;
+    background: white;
+    padding: 6mm 5mm;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    font-size: 11px;
+    color: #1a1a1a;
+  }
+
+  /* ---- HEADER ---- */
+  .receipt-header {
+    text-align: center;
+    padding-bottom: 4mm;
+  }
+  .receipt-header img.logo {
+    width: 18mm;
+    height: 18mm;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2mm;
+    /* Thermal: convert to grayscale so it prints correctly in B&W */
+    filter: grayscale(100%) contrast(120%);
+  }
+  .logo-placeholder {
+    width: 18mm;
+    height: 18mm;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2mm;
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .logo-placeholder img {
+    width: 18mm;
+    /* Thermal: grayscale for B&W print */
+    /* filter: grayscale(100%) contrast(120%); */
+  }
+  .store-name {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1mm;
+  }
+  .receipt-subtitle {
+    font-size: 9px;
+    color: #3c3c3c;
+    font-weight: 600;
+  }
+
+  /* ---- DIVIDER ---- */
+  /* Thermal: use #000 instead of #ccc — light colors don't print on thermal */
+  .divider {
+    border: none;
+    border-top: 1px dashed #000;
+    margin: 3mm 0;
+  }
+  .divider-solid {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 3mm 0;
+  }
+
+  /* ---- INFO ROWS ---- */
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2mm 0;
+  }
+  .info-label {
+    color: #3c3c3c;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .info-value {
+    font-size: 10px;
+    font-weight: 500;
+    text-align: right;
+  }
+  /* Thermal: replace colored pill (background + dot) with plain bracketed text */
+  .badge-paid {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .badge-paid::before { content: '['; }
+  .badge-paid::after  { content: ']'; }
+
+  /* ---- PRODUCT TABLE ---- */
+  .product-table {
+    width: 100%;
+  }
+  .table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 2mm 0 1.5mm;
+    border-bottom: 1px dashed #000;
+    margin-bottom: 1.5mm;
+  }
+  .table-header span {
+    font-size: 9px;
+    font-weight: 600;
+    color: #3c3c3c;
+  }
+  .table-header span:not(:first-child) { text-align: center; }
+  .table-header span:last-child { text-align: right; }
+
+  .product-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 1.5mm 0;
+    align-items: center;
+    border-bottom: 1px dashed #ccc;
+  }
+  .product-name {
+    font-size: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+  }
+  /* Thermal: replace colored background with a simple border */
+  .product-img {
+    width: 7mm;
+    height: 7mm;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7px;
+    flex-shrink: 0;
+  }
+  .product-qty {
+    font-size: 10px;
+    font-weight: 600;
+    color: #2d7a6e; /* screen only — overridden to #000 on print */
+    text-align: center;
+  }
+  .product-price {
+    font-size: 10px;
+    color: #c8832a; /* screen only */
+    text-align: center;
+    font-weight: 500;
+  }
+  .product-subtotal {
+    font-size: 10px;
+    color: #c8832a; /* screen only */
+    text-align: right;
+    font-weight: 600;
+  }
+
+  /* ---- TOTALS ---- */
+  .totals-section { padding: 1mm 0; }
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2mm 0;
+  }
+  .total-label { font-size: 10px; color: #3c3c3c;font-weight: 600; }
+  .total-value { font-size: 10px; color: #c8832a; font-weight: 500; }
+  .total-value.discount { color: #e53935; }
+  .grand-total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 2mm 0 1mm;
+    border-top: 1.5px solid #1a1a1a;
+    margin-top: 1mm;
+  }
+  .grand-label { font-size: 13px; font-weight: 700; }
+  .grand-value { font-size: 13px; font-weight: 700; color: #1a3a5c; }
+
+  /* ---- FOOTER ---- */
+  .receipt-footer {
+    text-align: center;
+    padding-top: 2mm;
+  }
+  .footer-address {
+    font-size: 9px;
+    color: #3c3c3c;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  /* ---- KITCHEN / COUNTER SPECIFIC ---- */
+  .section-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 2mm 0;
+    /* Thermal: add border so section title stands out in B&W without color */
+    border: 1.5px solid #000;
+    padding: 1.5mm 0;
+  }
+  .kitchen-table {
+    width: 100%;
+  }
+  .kitchen-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 2mm 0 1.5mm;
+    border-bottom: 1px dashed #000;
+    margin-bottom: 1.5mm;
+  }
+  .kitchen-header span {
+    font-size: 9px;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+  }
+  .product-variant {
+    display: block;
+    font-size: 8px;
+    font-weight: 900;
+    color: black;
+    margin-top: 0.3mm;
+  }
+  .kitchen-header span:first-child { text-align: left; }
+  .kitchen-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 1.5mm 0;
+    align-items: center;
+    border-bottom: 1px dashed #ccc;
+  }
+  .kitchen-qty {
+    font-size: 10px;
+    font-weight: 600;
+    color: #2d7a6e; /* screen only */
+    text-align: center;
+  }
+
+  /* Counter order number big */
+  .order-number-big {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a3a5c; /* screen only */
+  }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">🖨️ Print All Receipts</button>
+
+<!-- ==================== RECEIPT 1: Customer Receipt ==================== -->
+<div class="receipt">
+  <div class="receipt-header">
+    <div class="logo-placeholder">
+      <img src="assets\imgs\logo.png"  alt="">
+    </div>
+    <div class="store-name">ESERO</div>
+    <div class="receipt-subtitle">Your Receipt has been issued successfully</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="info-row">
+    <span class="info-label">Order Date</span>
+    <span class="info-value">2026-01-30</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Order Time</span>
+    <span class="info-value">8:00 PM</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Order ID</span>
+    <span class="info-value">65782</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Customer Name</span>
+    <span class="info-value">Anas Ahmed Khan</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Store Phone No</span>
+    <span class="info-value">123 456 789</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Payment Method</span>
+    <span class="info-value">Online</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Payment Status</span>
+    <span class="info-value"><span class="badge-paid">Paid</span></span>
+  </div>
+
+  <hr class="divider">
+
+  <div class="product-table">
+    <div class="table-header">
+      <span>Product</span>
+      <span>Qty</span>
+      <span>Price</span>
+      <span>Subtotal</span>
+    </div>
+    <div class="product-row">
+      <span class="product-name">Burger</span>
+      <span class="product-qty">1</span>
+      <span class="product-price">$10</span>
+      <span class="product-subtotal">$10</span>
+    </div>
+    <div class="product-row">
+      <span class="product-name">Piza<span class="product-variant">(Extra Topping)</span></span>
+      <span class="product-qty">1</span>
+      <span class="product-price">$10</span>
+      <span class="product-subtotal">$10</span>
+    </div>
+    <div class="product-row">
+      <span class="product-name">Burger<span class="product-variant">(Large)</span></span>
+      <span class="product-qty">1</span>
+      <span class="product-price">$10</span>
+      <span class="product-subtotal">$10</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="totals-section">
+    <div class="total-row">
+      <span class="total-label">Subtotal</span>
+      <span class="total-value">$41.91</span>
+    </div>
+    <div class="total-row">
+      <span class="total-label">Discount sales</span>
+      <span class="total-value discount">-$5.00</span>
+    </div>
+    <div class="total-row">
+      <span class="total-label">Total sales Tax</span>
+      <span class="total-value">$5.00</span>
+    </div>
+    <div class="grand-total-row">
+      <span class="grand-label">Total</span>
+      <span class="grand-value">$41.91</span>
+    </div>
+  </div>
+
+  <hr class="divider-solid">
+
+  <div class="receipt-footer">
+    <div class="footer-address">
+      Main Auto Bhan Road unit # 2 Latifabad, Hyderabad<br>
+      For Detail: 03213176482
+    </div>
+  </div>
+</div>
+
+<!-- ==================== RECEIPT 2: Kitchen ==================== -->
+<div class="receipt">
+  <div class="receipt-header">
+    <div class="logo-placeholder">
+      <img src="assets\imgs\logo.png"  alt="">
+    </div>
+    <div class="store-name">ESERO</div>
+    <!-- <div class="receipt-subtitle">Your Receipt has been issued successfully</div> -->
+  </div>
+
+  <hr class="divider">
+
+  <div class="info-row">
+    <span class="info-label">Order Date</span>
+    <span class="info-value">2026-01-30</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Order Time</span>
+    <span class="info-value">8:00 PM</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Order ID</span>
+    <span class="info-value">65782</span>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title" style="font-size:11px; margin: 1mm 0 2mm;">Order Detail</div>
+
+  <div class="kitchen-table">
+    <div class="kitchen-header">
+      <span>Product</span>
+      <span>Quantity</span>
+    </div>
+    <div class="kitchen-row">
+      <span class="product-name">Burger</span>
+      <span class="kitchen-qty">1</span>
+    </div>
+    <div class="kitchen-row">
+      <span class="product-name">Piza<span class="product-variant">(Extra Topping)</span></span>
+      <span class="kitchen-qty">1</span>
+    </div>
+    <div class="kitchen-row">
+      <span class="product-name">Burger<span class="product-variant">(Large)</span></span>
+      <span class="kitchen-qty">1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== RECEIPT 3: Counter ==================== -->
+<div class="receipt">
+  <div class="receipt-header">
+    <div class="logo-placeholder">
+      <img src="assets\imgs\logo.png"  alt="">
+    </div>
+    <div class="store-name">ESERO</div>
+    <!-- <div class="receipt-subtitle">Your Receipt has been issued successfully</div> -->
+  </div>
+
+  <hr class="divider">
+
+  <div class="info-row">
+    <span class="info-label">Order Date</span>
+    <span class="info-value">2026-01-30</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Order Time</span>
+    <span class="info-value">8:00 PM</span>
+  </div>
+  <div class="info-row">
+    <span class="info-label">Order Number</span>
+    <span class="info-value order-number-big">65782</span>
+  </div>
+</div>
+
+</body>
+</html>
