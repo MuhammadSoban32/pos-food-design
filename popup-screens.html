@@ -341,6 +341,131 @@
                 padding: 20px;
             }
         }
+         .cop-page-bg {
+      background: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cop-modal-dialog {
+      max-width: 380px;
+    }
+
+    .cop-modal-box {
+      /* border: 3px solid #4a90d9 !important; */
+      border-radius: 12px !important;
+      padding: 20px 16px 14px !important;
+      text-align: center;
+    }
+
+    .cop-burger-img {
+      width: 100px;
+      height: auto;
+      margin: 0 auto 12px;
+      display: block;
+    }
+
+    .cop-heading-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    .cop-sub-text {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 20px;
+    }
+
+    .cop-field-label {
+      font-size: 0.78rem;
+      color: #555;
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+
+    .cop-star {
+      color: red;
+      font-size: 0.75rem;
+    }
+
+    .cop-order-input {
+      border-radius: 6px !important;
+      border: 1px solid #ccc !important;
+      font-size: 0.9rem !important;
+      height: 42px !important;
+      width: 100%;
+      box-shadow: none !important;
+    }
+
+    .cop-order-input:focus {
+      border-color: #4a90d9 !important;
+      outline: none;
+    }
+
+    .cop-btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 20px;
+      padding-bottom: 4px;
+    }
+
+    .cop-btn-no {
+      border: 2px solid #d4a017;
+      background: #fff;
+      color: #b8860b;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 6px 32px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cop-btn-no:hover {
+      background: #fdf3d0;
+      color: #b8860b;
+    }
+
+    .cop-btn-yes {
+      border: none;
+      background: #e8a020;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 8px 22px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .cop-btn-yes:hover {
+      background: #c88010;
+    }
+
+    .cop-trigger-btn {
+      background: #4a90d9;
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cop-trigger-btn:hover {
+      background: #357abd;
+      color: #fff;
+    }
+
     </style>
 </head>
 <body>
@@ -359,7 +484,57 @@
     <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#customerListModal">
         cutomer info screen
     </button>
+    <button
+        class="cop-trigger-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#copCancelModal"
+    >
+        Cancel Order
+    </button>
 
+    <!-- Modal -->
+    <div
+        class="modal fade"
+        id="copCancelModal"
+        tabindex="-1"
+        aria-labelledby="copCancelModalLabel"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered cop-modal-dialog">
+        <div class="modal-content cop-modal-box">
+
+            <img
+            src="assets/imgs/burger3.png"
+            alt="Burger"
+            class="cop-burger-img"
+            />
+
+            <p class="cop-heading-text">Do you really want to cancel your order?</p>
+            <p class="cop-sub-text">If yes, then please enter your Order Number / ID</p>
+
+            <div class="text-start px-1 mb-1">
+            <label class="cop-field-label" for="copOrderInput">
+                Enter Order Number <span class="cop-star">*</span>
+            </label>
+            <input
+                type="text"
+                id="copOrderInput"
+                class="form-control cop-order-input"
+            />
+            </div>
+
+            <div class="cop-btn-row">
+            <!-- NO closes modal via Bootstrap data attribute, no JS -->
+            <button
+                class="cop-btn-no"
+                data-bs-dismiss="modal"
+            >NO</button>
+            <button class="cop-btn-yes">Yes, Cancel</button>
+            </div>
+
+        </div>
+        </div>
+    </div>
     <!-- Burger Modal -->
     <div class="modal fade" id="burgerModal" tabindex="-1" aria-labelledby="burgerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

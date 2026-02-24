@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy POS - Header</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Chart.js Library -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script> -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+    /* ---- Root tokens ---- */
+    .tv-section {
+      --tv-bg-page:       #eef1f8;
+      --tv-bg-card:       #ffffff;
+      --tv-radius-card:   14px;
+      --tv-shadow-card:   0 2px 8px rgba(0,0,0,.07);
+      --tv-radius-tag:    10px;
+
+      /* Tag colours */
+      --tv-available-bg:  #fef9ec;
+      --tv-available-txt: #c9a227;
+      --tv-dining-bg:     #edf5f3;
+      --tv-dining-txt:    #4a9b82;
+      --tv-reserved-bg:   #fdecea;
+      --tv-reserved-txt:  #e06b6b;
+      --tv-empty-bg:      #f4f5f7;
+      --tv-empty-txt:     #9ca3af;
+
+      /* Floor button */
+      --tv-btn-active-bg: #c9a227;
+      --tv-btn-active-txt:#ffffff;
+      --tv-btn-idle-bg:   #ffffff;
+      --tv-btn-idle-txt:  #374151;
+
+      /* background: var(--tv-bg-page); */
+      /* padding: 24px; */
+      border-radius: 18px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* ---- Header ---- */
+    .tv-section .tv-header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      background: #ffffff;
+      justify-content: space-between;
+      padding: 7px 18px;
+      border-radius: 12px;
+    }
+    .tv-section .tv-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+    .tv-section .tv-legend {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+        border: 1px solid #e3e2e2;
+        border-radius: 7px;
+        padding: 6px 11px;
+    }
+    .tv-section .tv-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      color: #6b7280;
+    }
+    .tv-section .tv-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .tv-section .tv-dot-available { background: var(--tv-available-txt); }
+    .tv-section .tv-dot-dining    { background: var(--tv-dining-txt);    }
+    .tv-section .tv-dot-reserved  { background: var(--tv-reserved-txt);  }
+
+    /* Floor toggle buttons */
+    .tv-section .tv-floor-btns {
+      /* margin-left: auto; */
+      display: flex;
+      gap: 8px;
+    }
+    .tv-section .tv-floor-btn {
+      padding: 6px 18px;
+      border-radius: 8px;
+      border: 1.5px solid #e5e7eb;
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      background: var(--tv-btn-idle-bg);
+      color: var(--tv-btn-idle-txt);
+    }
+    .tv-section .tv-floor-btn.active,
+    .tv-section .tv-floor-btn:hover {
+      background: var(--tv-btn-active-bg);
+      color: var(--tv-btn-active-txt);
+      border-color: var(--tv-btn-active-bg);
+    }
+
+    /* ---- Table card ---- */
+    .tv-section .tv-card {
+      background: var(--tv-bg-card);
+      border-radius: var(--tv-radius-card);
+      box-shadow: var(--tv-shadow-card);
+      padding: 20px 16px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 206px;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .tv-section .tv-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,.1);
+    }
+
+    /* ---- Table tag (coloured label inside card) ---- */
+    .tv-section .tv-tag {
+      padding: 32px 32px;
+      border-radius: var(--tv-radius-tag);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    .tv-section .tv-tag-available {
+      background: var(--tv-available-bg);
+      color: var(--tv-available-txt);
+    }
+    .tv-section .tv-tag-dining {
+      background: var(--tv-dining-bg);
+      color: var(--tv-dining-txt);
+    }
+    .tv-section .tv-tag-reserved {
+      background: var(--tv-reserved-bg);
+      color: var(--tv-reserved-txt);
+    }
+    .tv-section .tv-tag-empty {
+      background: var(--tv-empty-bg);
+      color: var(--tv-empty-txt);
+    }
+
+    /* ---- Responsive column sizing ---- */
+    /* Default Bootstrap col-6 col-sm-4 col-md-3 col-xl-2 used inline */
+  </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        
+        <button class="hamburger sidebar-burger" id="sidebarburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+         <button class="hamburger" id="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="assets/imgs/Logo design 4.png" alt="" srcset="">
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links" id="navLinks">
+            <a href="#" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Order List</a>
+            <a href="#" class="nav-link">History</a>
+            <a href="#" class="nav-link">Bills</a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="header-actions">
+            <button class="btn-new-order">New Order</button>
+
+            <div class="notification-btn">
+                <img src="assets/imgs/Notification.png" alt="Notifications" class="notification-icon">
+            </div>
+
+            <div class="user-profile">
+                <img src="assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-wrapper">
+        
+        <aside class="sidebar">
+        
+            <!-- Navigation Menu -->
+            <nav class="sidebar-nav">
+                
+                <!-- Home - Active with Green Background -->
+                <a href="#" class="nav-item active">
+                    <div class="nav-icon-box">
+                        <img src="assets/imgs/Home Page.png" alt="Home" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Home</span>
+                </a>
+                
+                <!-- Customer -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="assets/imgs/orders.png" alt="Order Cancel" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Order Cancel</span>
+                </a>
+                
+                <!-- Tables -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="assets/imgs/Order History.png" alt="Order HIstory" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Order History</span>
+                </a>
+                
+                <!-- Cashier -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="assets/imgs/Settings.png" alt="Settings" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Settings</span>
+                </a>
+                
+                <!-- Orders -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="assets/imgs/Customer.png" alt="Customers" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Customers</span>
+                </a>
+                
+                <!-- Reports -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="assets/imgs/tablet.png" alt="Tablets" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Tablets</span>
+                </a>
+                
+                <!-- Settings -->
+
+                
+            </nav>
+            
+            <!-- User Profile Section at Bottom -->
+            <div class="sidebar-footer">
+                
+                <!-- User Avatar -->
+                <div class="user-avatar-wrapper">
+                    <img src="assets/imgs/Logo design 4.png" alt="User Profile" class="user-avatar">
+                </div>
+                
+                <!-- Logout -->
+                <a href="#" class="nav-item logout">
+                    <div class="nav-icon-box">
+                        <img src="assets/imgs/Logout.png" alt="Logout" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Logout</span>
+                </a>
+                
+            </div>
+            
+        </aside>
+
+        <div class="container-fluid">
+            <!-- Main Content Area -->
+            <main class="main-content" style="padding: 0px;background: none;">
+                <div class="tv-section">
+
+                    <div class="tv-header">
+                    <h6 class="tv-title">Table View</h6>
+
+                    <div class="tv-legend">
+                    <span class="tv-legend-item">
+                        <span class="tv-dot tv-dot-available"></span> Available: 3
+                    </span>
+                    <span class="tv-legend-item">
+                        <span class="tv-dot tv-dot-dining"></span> Dine in: 4
+                    </span>
+                    <span class="tv-legend-item">
+                        <span class="tv-dot tv-dot-reserved"></span> Reserved: 6
+                    </span>
+                    </div>
+
+                    <div class="tv-floor-btns">
+                        <button class="tv-floor-btn">1st Floor</button>
+                        <button class="tv-floor-btn active">2nd Floor</button>
+                        </div>
+                    </div>
+
+                    <!-- Grid of tables -->
+                    <div class="row g-3">
+
+                        <!-- A1 - available -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-available">A1</span>
+                        </div>
+                        </div>
+
+                        <!-- A2 - dining -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-dining">A2</span>
+                        </div>
+                        </div>
+
+                        <!-- A3 - reserved -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-reserved">A3</span>
+                        </div>
+                        </div>
+
+                        <!-- A4 - reserved -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-reserved">A4</span>
+                        </div>
+                        </div>
+
+                        <!-- A5 - empty -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-empty">A5</span>
+                        </div>
+                        </div>
+
+                        <!-- A6 - available -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-available">A6</span>
+                        </div>
+                        </div>
+
+                        <!-- A7 - available -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-available">A7</span>
+                        </div>
+                        </div>
+
+                        <!-- A8 - dining -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-dining">A8</span>
+                        </div>
+                        </div>
+
+                        <!-- A9 - reserved -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-reserved">A9</span>
+                        </div>
+                        </div>
+
+                        <!-- A10 - reserved -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-reserved">A10</span>
+                        </div>
+                        </div>
+
+                        <!-- A11 - empty -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-empty">A11</span>
+                        </div>
+                        </div>
+
+                        <!-- A12 - available -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-available">A12</span>
+                        </div>
+                        </div>
+
+                        <!-- A13 - dining -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-dining">A13</span>
+                        </div>
+                        </div>
+
+                        <!-- A14 - reserved -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-reserved">A14</span>
+                        </div>
+                        </div>
+
+                        <!-- A15 - reserved -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-reserved">A15</span>
+                        </div>
+                        </div>
+
+                        <!-- A16 - empty -->
+                        <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+                        <div class="tv-card">
+                            <span class="tv-tag tv-tag-empty">A16</span>
+                        </div>
+                        </div>
+
+                    </div><!-- /row -->
+                </div>
+            </main>
+        </div>
+
+
+</div>
+
+
+
+    <!-- JavaScript for Hamburger -->
+    <script src="assets/javascript/custom.js"></script>
+</body>
+</html>
+    
+
+  
