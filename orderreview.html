@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy POS - Header</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Chart.js Library -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script> -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* ===== OR-HEADER ===== */
+    .or-topbar {
+        margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      border-bottom: 1px solid #e8e8e8;
+      background: #fff;
+    }
+    .or-topbar-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: #222;
+    }
+    .or-back-btn {
+      border: 1.5px solid #e0a800;
+      color: #e0a800;
+      background: transparent;
+      border-radius: 8px;
+      padding: 6px 22px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .or-back-btn:hover { background: #e0a800; color: #fff; }
+
+    /* ===== OR-MAIN LAYOUT ===== */
+    .or-main-wrap {
+      display: flex;
+      height: calc(100vh - 53px);
+    }
+
+    /* ===== OR-LEFT CART SECTION ===== */
+    .or-cart-col {
+        margin-right: 23px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-right: 1px solid #eee;
+    }
+
+    .or-cart-heading {
+        border-top-left-radius: 11px;
+      background: #e0a800;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 20px;
+      flex-shrink: 0;
+    }
+
+    .or-cart-scroll {
+        background: #fff;
+      flex: 1;
+      overflow-y: auto;
+    }
+    .or-cart-scroll::-webkit-scrollbar { width: 5px; }
+    .or-cart-scroll::-webkit-scrollbar-track { background: #f9f9f9; }
+    .or-cart-scroll::-webkit-scrollbar-thumb { background: #ddd; border-radius: 3px; }
+
+    /* ===== OR-CART ITEM ===== */
+    .or-item-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 20px;
+      border-bottom: 1px solid #f2f2f2;
+    }
+    .or-item-row:last-child { border-bottom: none; }
+
+    .or-item-thumb {
+      width: 62px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+      background: #f5f5f5;
+    }
+
+    .or-item-details { flex: 1; }
+    .or-item-name { font-size: 14px; font-weight: 600; color: #222; margin-bottom: 2px; }
+    .or-item-variant { font-size: 12px; color: #aaa; margin-bottom: 8px; }
+
+    .or-qty-row { display: flex; align-items: center; gap: 6px; }
+
+    .or-qty-dec, .or-qty-inc {
+      width: 22px; height: 22px;
+      background: transparent;
+      border: 1.5px solid #ddd;
+      border-radius: 4px;
+      font-size: 15px;
+      color: #666;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      line-height: 1;
+      transition: all 0.15s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .or-qty-dec:hover, .or-qty-inc:hover { border-color: #e0a800; color: #e0a800; }
+
+    .or-qty-num {
+      width: 30px; height: 22px;
+      background: #e0a800;
+      color: #fff;
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 600;
+    }
+
+    .or-del-btn {
+      width: 28px; height: 28px;
+      background: #e0a800;
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-left: 2px;
+      transition: background 0.2s;
+    }
+    .or-del-btn:hover { background: #c8960a; }
+
+    .or-item-price {
+      font-size: 16px; font-weight: 700;
+      color: #e0a800;
+      flex-shrink: 0;
+      min-width: 44px;
+      text-align: right;
+    }
+
+    /* ===== OR-RIGHT SUMMARY SECTION ===== */
+    .or-summary-col {
+      width: 215px;
+      flex-shrink: 0;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid #eee;
+    }
+
+    .or-summary-heading {
+      padding: 16px 16px 12px;
+      font-size: 14px; font-weight: 600;
+      color: #e0a800;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .or-form-block {
+      padding: 14px 16px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .or-field-label {
+      font-size: 11px; color: #bbb;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .or-field-input {
+      width: 100%;
+      border: 1.5px solid #ebebeb;
+      border-radius: 6px;
+      padding: 7px 10px;
+      font-size: 12px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      margin-bottom: 10px;
+      color: #333;
+      transition: border-color 0.2s;
+    }
+    .or-field-input:last-child { margin-bottom: 0; }
+    .or-field-input:focus { border-color: #e0a800; }
+
+    .or-your-order-title {
+      font-size: 14px; font-weight: 600;
+      color: #222;
+      text-align: center;
+      padding: 12px 16px 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .or-totals-block {
+      padding: 12px 16px;
+      flex: 1;
+    }
+    .or-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 7px;
+      font-size: 12px;
+    }
+    .or-price-label { color: #777; }
+    .or-price-val { font-weight: 600; color: #e0a800; }
+    .or-price-val.or-red { color: #e74c3c; }
+
+    .or-grand-divider { border: none; border-top: 1px solid #eee; margin: 6px 0 10px; }
+    .or-grand-row { display: flex; justify-content: space-between; align-items: center; }
+    .or-grand-lbl { font-size: 13px; font-weight: 700; color: #222; }
+    .or-grand-val { font-size: 13px; font-weight: 700; color: #e0a800; }
+
+    /* ===== OR-CHECKOUT BAR ===== */
+    .or-checkout-wrap {
+      padding: 14px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .or-checkout-btn {
+      display: flex;
+      align-items: center;
+      background: #e0a800;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      transition: opacity 0.2s;
+    }
+    .or-checkout-btn:hover { opacity: 0.9; }
+
+    .or-checkout-info {
+      /* flex: 1; */
+      padding: 8px 12px;
+      text-align: left;
+    }
+    .or-checkout-count {
+      display: block;
+      font-size: 10px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+    .or-checkout-amt {
+      display: block;
+      font-size: 13px;
+      color: #fff;
+      font-weight: 700;
+    }
+    .or-checkout-label {
+      font-size: 13px;
+      color: #fff;
+      font-weight: 600;
+      padding: 0 6px;
+    }
+    .or-checkout-arrow {
+        margin-left: 10px;
+        border-radius: 30px;
+      width: 24px; height: 25px;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .or-main-wrap { flex-direction: column; height: auto; min-height: calc(100vh - 53px); }
+      .or-cart-col { border-right: none; border-bottom: 1px solid #eee; height: 55vh; }
+      .or-summary-col { width: 100%; border-left: none; }
+    }
+    </style>
+
+</head>
+
+
+<body>
+    
+    <!-- Header -->
+    <header class="header">
+
+        <button class="hamburger sidebar-burger" id="sidebarburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+         <button class="hamburger" id="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <!-- Logo -->
+        <div class="logo">
+            <span class="logo-text">Easy <span class="logo-highlight">POS</span></span>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links" id="navLinks">
+            <a href="#" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Order List</a>
+            <a href="#" class="nav-link">History</a>
+            <a href="#" class="nav-link">Bills</a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="header-actions">
+            <button class="btn-new-order">New Order</button>
+
+            <div class="notification-btn">
+                <img src="assets/imgs/bellicon.png" alt="Notifications" class="notification-icon">
+            </div>
+
+            <div class="user-profile">
+                <img src="assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-wrapper">
+
+        <aside class="sidebar">
+        
+        <!-- Navigation Menu -->
+        <nav class="sidebar-nav">
+            
+            <!-- Home - Active with Green Background -->
+            <a href="#" class="nav-item active">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Home Page.png" alt="Home" class="nav-icon">
+                </div>
+                <span class="nav-text">Home</span>
+            </a>
+            
+            <!-- Customer -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/orders.png" alt="Order Cancel" class="nav-icon">
+                </div>
+                <span class="nav-text">Order Cancel</span>
+            </a>
+            
+            <!-- Tables -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Order History.png" alt="Order HIstory" class="nav-icon">
+                </div>
+                <span class="nav-text">Order History</span>
+            </a>
+            
+            <!-- Cashier -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Settings.png" alt="Settings" class="nav-icon">
+                </div>
+                <span class="nav-text">Settings</span>
+            </a>
+            
+            <!-- Orders -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Customer.png" alt="Customers" class="nav-icon">
+                </div>
+                <span class="nav-text">Customers</span>
+            </a>
+            
+            <!-- Reports -->
+            <a href="#" class="nav-item">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/tablet.png" alt="Tablets" class="nav-icon">
+                </div>
+                <span class="nav-text">Tablets</span>
+            </a>
+            
+            <!-- Settings -->
+
+            
+        </nav>
+        
+        <!-- User Profile Section at Bottom -->
+        <div class="sidebar-footer">
+            
+            <!-- User Avatar -->
+            <div class="user-avatar-wrapper">
+                <img src="assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+            
+            <!-- Logout -->
+            <a href="#" class="nav-item logout">
+                <div class="nav-icon-box">
+                    <img src="assets/imgs/Logout.png" alt="Logout" class="nav-icon">
+                </div>
+                <span class="nav-text">Logout</span>
+            </a>
+            
+        </div>
+        
+    </aside>
+    <main class="main-content">
+        <div class="or-topbar">
+    <span class="or-topbar-title">Order Review</span>
+    <button class="or-back-btn">Back</button>
+  </div>
+
+
+        <div class="container-fluid px-0">
+            <div class="or-main-wrap">
+
+    <!-- LEFT: Cart Items -->
+    <div class="or-cart-col">
+      <div class="or-cart-heading">Items from your Cart</div>
+      <div class="or-cart-scroll">
+
+        <!-- Repeat items for scroll demo -->
+        <div class="or-item-row">
+          <img src="/assets/imgs/burger3.png" alt="Burger" class="or-item-thumb"/>
+          <div class="or-item-details">
+            <div class="or-item-name">Burger</div>
+            <div class="or-item-variant">Size: Large</div>
+            <div class="or-qty-row">
+              <button class="or-qty-dec">−</button>
+              <div class="or-qty-num">1</div>
+              <button class="or-qty-inc">+</button>
+              <button class="or-del-btn">
+                <img src="/assets/imgs/Delete2.png" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="or-item-price">$20</div>
+        </div>
+
+        <div class="or-item-row">
+          <img src="/assets/imgs/burger3.png" alt="Burger" class="or-item-thumb"/>
+          <div class="or-item-details">
+            <div class="or-item-name">Burger</div>
+            <div class="or-item-variant">Size: Large</div>
+            <div class="or-qty-row">
+              <button class="or-qty-dec">−</button>
+              <div class="or-qty-num">1</div>
+              <button class="or-qty-inc">+</button>
+              <button class="or-del-btn">
+                   <img src="/assets/imgs/Delete2.png" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="or-item-price">$20</div>
+        </div>
+
+        <div class="or-item-row">
+          <img src="/assets/imgs/burger3.png" alt="Burger" class="or-item-thumb"/>
+          <div class="or-item-details">
+            <div class="or-item-name">Burger</div>
+            <div class="or-item-variant">Size: Large</div>
+            <div class="or-qty-row">
+              <button class="or-qty-dec">−</button>
+              <div class="or-qty-num">1</div>
+              <button class="or-qty-inc">+</button>
+              <button class="or-del-btn">
+                  <img src="/assets/imgs/Delete2.png" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="or-item-price">$20</div>
+        </div>
+
+        <div class="or-item-row">
+          <img src="/assets/imgs/burger3.png" alt="Burger" class="or-item-thumb"/>
+          <div class="or-item-details">
+            <div class="or-item-name">Burger</div>
+            <div class="or-item-variant">Size: Large</div>
+            <div class="or-qty-row">
+              <button class="or-qty-dec">−</button>
+              <div class="or-qty-num">1</div>
+              <button class="or-qty-inc">+</button>
+              <button class="or-del-btn">
+                <img src="/assets/imgs/Delete2.png" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="or-item-price">$20</div>
+        </div>
+
+        <div class="or-item-row">
+          <img src="/assets/imgs/burger3.png" alt="Burger" class="or-item-thumb"/>
+          <div class="or-item-details">
+            <div class="or-item-name">Burger</div>
+            <div class="or-item-variant">Size: Large</div>
+            <div class="or-qty-row">
+              <button class="or-qty-dec">−</button>
+              <div class="or-qty-num">1</div>
+              <button class="or-qty-inc">+</button>
+              <button class="or-del-btn">
+                <img src="/assets/imgs/Delete2.png" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="or-item-price">$20</div>
+        </div>
+
+        <div class="or-item-row">
+          <img src="/assets/imgs/burger3.png" alt="Burger" class="or-item-thumb"/>
+          <div class="or-item-details">
+            <div class="or-item-name">Burger</div>
+            <div class="or-item-variant">Size: Large</div>
+            <div class="or-qty-row">
+              <button class="or-qty-dec">−</button>
+              <div class="or-qty-num">1</div>
+              <button class="or-qty-inc">+</button>
+              <button class="or-del-btn">
+                    <img src="/assets/imgs/Delete2.png" alt="">
+              </button>
+            </div>
+          </div>
+          <div class="or-item-price">$20</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT: Order Summary -->
+    <div class="or-summary-col">
+
+      <div class="or-summary-heading">1 Item Added</div>
+
+      <div class="or-form-block">
+        <label class="or-field-label">Customer Name</label>
+        <input type="text" class="or-field-input"/>
+        <label class="or-field-label">Phone Number</label>
+        <input type="text" class="or-field-input"/>
+      </div>
+
+      <div class="or-your-order-title">Your Order</div>
+
+      <div class="or-totals-block">
+        <div class="or-price-row">
+          <span class="or-price-label">Subtotal</span>
+          <span class="or-price-val">$41.91</span>
+        </div>
+        <div class="or-price-row">
+          <span class="or-price-label">Discount</span>
+          <span class="or-price-val">$5.00</span>
+        </div>
+        <div class="or-price-row">
+          <span class="or-price-label">Sales Tax (15%)</span>
+          <span class="or-price-val or-red">-$5.00</span>
+        </div>
+        <hr class="or-grand-divider"/>
+        <div class="or-grand-row">
+          <span class="or-grand-lbl">Total:</span>
+          <span class="or-grand-val">$106</span>
+        </div>
+      </div>
+
+      <div class="or-checkout-wrap">
+        <button class="or-checkout-btn">
+          <div class="or-checkout-info">
+            <span class="or-checkout-count">1 Item</span>
+            <span class="or-checkout-amt">$25</span>
+          </div>
+          <span class="or-checkout-label">Checkout</span>
+          <div class="or-checkout-arrow">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="black" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+        </div>
+
+    </main>
+
+
+    
+
+</div>
+
+
+    <!-- JavaScript for Hamburger -->
+    <script src="assets/javascript/custom.js"></script>
+    <script>
+        function switchTab(tab) {
+    const generalContent = document.getElementById('generalContent');
+    const advancedContent = document.getElementById('advancedContent');
+    const tabBtns = document.querySelectorAll('.tab-button');
+
+    tabBtns.forEach(btn => btn.classList.remove('active'));
+
+    if (tab === 'general') {
+        generalContent.style.display = 'block';
+        advancedContent.style.display = 'none';
+        tabBtns[0].classList.add('active');
+    } else {
+        generalContent.style.display = 'none';
+        advancedContent.style.display = 'block';
+        tabBtns[1].classList.add('active');
+    }
+}
+    </script>
+</body>
+</html>
+    
+
+  
