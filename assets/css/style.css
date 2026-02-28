@@ -1060,7 +1060,7 @@ header.header {
 
 .search-icon {
     /* background-color: #C36B21; */
-    position: absolute;
+    /* position: absolute; */
     left: 10px;
     width: 20px;
     height: 20px;
@@ -2317,7 +2317,7 @@ header.header {
 .payment-btn {
     flex: 1;
     padding: 14px;
-    background-color: #8b5a3c;
+    background-color: #C36B21;
     border: none;
     border-radius: 8px;
     font-size: 14px;
