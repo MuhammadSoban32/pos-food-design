@@ -1468,7 +1468,7 @@ header.header {
     font-size: 13px;
     font-weight: 500;
     color: #333;
-    margin: 0 0 4px 0;
+    /* margin: 0 0 4px 0; */
 }
 
 .item-price {
@@ -2590,6 +2590,7 @@ button.back-btn {
     background: white;
     margin-top: 50px;
     /* margin-bottom: 40px; */
+    height: fit-content;
 }
 
 .items-grid {
@@ -2616,21 +2617,28 @@ button.back-btn {
 
 
 .item-img-box {
-    width: 100%;
-    height: 160px;
+    /* width: 100%; */
+    /* height: 160px; */
+    height: 205px;
     background-color: #f5f5f5;
     overflow: hidden;
+     display: flex;
+    justify-content: center;
+    align-items: anchor-center;
+    background: white;
 }
 
 .item-img {
     background: #FFFFFF;
-    width: 100%;
-    height: 100%;
+    width: 118px;
+    height: 118px;
     object-fit: contain;
 }
 
 .item-details {
-    padding: 15px;
+    /* padding: 15px; */
+    /* padding: 15px; */
+    background: #F3F4F6;
 }
 
 .item-name {
@@ -2651,6 +2659,7 @@ button.back-btn {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    width: 100%;
 }
 
 .price-label {
@@ -2670,9 +2679,10 @@ button.back-btn {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #E6B325;
+    /* background-color: #E6B325; */
     border-radius: 20px;
     padding: 4px 10px;
+    width: 100%;
 }
 
 .item-qty-btn {
@@ -2798,6 +2808,7 @@ button.back-btn {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
+        border-radius: 12px;
 }
 
 .available-header-left {
@@ -2887,6 +2898,7 @@ button.back-btn {
 }
 
 .pickup{
+    border-radius:120px;
     background: white !important;
     padding: 15px 20px !important;
 }
@@ -3759,6 +3771,7 @@ button.back-btn {
 }
 
 .item-name {
+    margin-top: 10px;
     font-weight: 500;
 }
 
@@ -3816,10 +3829,27 @@ button.back-btn {
 .table-action-btn:hover {
     transform: scale(1.2);
 }
-
+button.table-action-btn.delete {
+    border-radius: 41px;
+    background: #E6B325;
+    height: 30px;
+    width: 30px;
+}
 .action-icon-small {
+    vertical-align: baseline;
     width: 18px;
     height: 18px;
+}
+button.table-action-btn.edit {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #C36B2130;
+    border-radius: 40px;
+    background: #C36B2130;
+}
+.white{
+    border-radius: 12px;
+    background: white;
 }
 .container-fluid{
     /* background: white;
