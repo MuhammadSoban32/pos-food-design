@@ -5485,7 +5485,7 @@ button.save-btn.stock2{
 }
 
 /* Desktop pe FAB aur backdrop hide */
-@media (min-width: 993px) {
+@media (min-width: 994px) {
   .cart-fab { display: none; }
   .cart-backdrop { display: none; }
   .drawer-handle { display: none; }
