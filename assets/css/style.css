@@ -1917,10 +1917,9 @@ header.header {
 }
 
 .order-layout {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    /* height: calc(100vh - 80px);
-    margin-top: 80px; */
+    display: flex;        /* grid ki jagah flex */
+    gap: 12px;
+    align-items: flex-start;
 }
 
 /* Left Side - Products Section */
@@ -1928,6 +1927,8 @@ header.header {
     background-color: transparent;
     /* padding: 0px 12px 0px 0px; */
     overflow-y: auto;
+    flex: 1;   
+    min-width: 0;  
 }
 
 /* Top Bar */
@@ -2067,9 +2068,10 @@ header.header {
     flex-direction: column;
     height: calc(100vh - 80px);
     border-radius: 12px;
-    position: fixed;
-    right: 19px;
-    /* overflow: hidden; */
+    position: sticky;
+    top: 80px;
+    width: 380px;
+    flex-shrink: 0;
 }
 
 .cart-header {
@@ -5391,6 +5393,7 @@ button.save-btn.stock2{
   /* Jab open class lage to slide up ho */
   .cart-section.open {
     transform: translateY(0);
+    width: auto;
   }
 
   /* Cart items scroll ho sakein */
