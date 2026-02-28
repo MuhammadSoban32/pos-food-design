@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy POS - Header</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+        <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* ---- Root tokens ---- */
+    .tv-section {
+      --tv-bg-page:       #eef1f8;
+      --tv-bg-card:       #ffffff;
+      --tv-radius-card:   14px;
+      --tv-shadow-card:   0 2px 8px rgba(0,0,0,.07);
+      --tv-radius-tag:    10px;
+
+      /* Tag colours */
+      --tv-available-bg:  #fef9ec;
+      --tv-available-txt: #c9a227;
+      --tv-dining-bg:     #edf5f3;
+      --tv-dining-txt:    #4a9b82;
+      --tv-reserved-bg:   #fdecea;
+      --tv-reserved-txt:  #e06b6b;
+      --tv-empty-bg:      #f4f5f7;
+      --tv-empty-txt:     #9ca3af;
+
+      /* Floor button */
+      --tv-btn-active-bg: #c9a227;
+      --tv-btn-active-txt:#ffffff;
+      --tv-btn-idle-bg:   #ffffff;
+      --tv-btn-idle-txt:  #374151;
+
+      /* background: var(--tv-bg-page); */
+      /* padding: 24px; */
+      border-radius: 18px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* ---- Header ---- */
+    .tv-section .tv-header {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+      background: #ffffff;
+      justify-content: space-between;
+      padding: 7px 18px;
+      border-radius: 12px;
+    }
+    .tv-section .tv-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+    .tv-section .tv-legend {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+        border: 1px solid #e3e2e2;
+        border-radius: 7px;
+        padding: 6px 11px;
+    }
+    .tv-section .tv-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      color: #6b7280;
+    }
+    .tv-section .tv-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .tv-section .tv-dot-available { background: var(--tv-available-txt); }
+    .tv-section .tv-dot-dining    { background: var(--tv-dining-txt);    }
+    .tv-section .tv-dot-reserved  { background: var(--tv-reserved-txt);  }
+
+    /* Floor toggle buttons */
+    .tv-section .tv-floor-btns {
+      /* margin-left: auto; */
+      display: flex;
+      gap: 8px;
+    }
+    .tv-section .tv-floor-btn {
+      padding: 6px 18px;
+      border-radius: 8px;
+      border: 1.5px solid #e5e7eb;
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      background: var(--tv-btn-idle-bg);
+      color: var(--tv-btn-idle-txt);
+    }
+    .tv-section .tv-floor-btn.active,
+    .tv-section .tv-floor-btn:hover {
+      background: var(--tv-btn-active-bg);
+      color: var(--tv-btn-active-txt);
+      border-color: var(--tv-btn-active-bg);
+    }
+
+    /* ---- Table card ---- */
+    .tv-section .tv-card {
+      background: var(--tv-bg-card);
+      border-radius: var(--tv-radius-card);
+      box-shadow: var(--tv-shadow-card);
+      padding: 20px 16px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 206px;
+      transition: transform .18s, box-shadow .18s;
+    }
+    .tv-section .tv-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,.1);
+    }
+
+    /* ---- Table tag (coloured label inside card) ---- */
+    .tv-section .tv-tag {
+      padding: 32px 32px;
+      border-radius: var(--tv-radius-tag);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    .tv-section .tv-tag-available {
+      background: var(--tv-available-bg);
+      color: var(--tv-available-txt);
+    }
+    .tv-section .tv-tag-dining {
+      background: var(--tv-dining-bg);
+      color: var(--tv-dining-txt);
+    }
+    .tv-section .tv-tag-reserved {
+      background: var(--tv-reserved-bg);
+      color: var(--tv-reserved-txt);
+    }
+    .tv-section .tv-tag-empty {
+      background: var(--tv-empty-bg);
+      color: var(--tv-empty-txt);
+    }
+/* =============================================
+       ALL STYLES SCOPED UNDER .pos-report-screen
+       ============================================= */
+    .pos-report-screen {
+      font-family: 'Segoe UI', sans-serif;
+      /* background: #f5f6fa; */
+      min-height: 100vh;
+      padding: 24px 0;
+    }
+
+    /* ---------- Stat Cards ---------- */
+    .pos-report-screen .prs-stat-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 100%;
+    }
+    .pos-report-screen .prs-stat-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: #fff7e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: #f5a623;
+      flex-shrink: 0;
+    }
+    .pos-report-screen .prs-stat-info .prs-stat-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f5a623;
+      line-height: 1.1;
+    }
+    .pos-report-screen .prs-stat-info .prs-stat-label {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 2px;
+    }
+    .pos-report-screen .prs-stat-badge {
+      margin-left: auto;
+      background: #e8f5e9;
+      color: #4caf50;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+    /* .pos-report-screen .prs-excel-btn {
+      position: absolute;
+      top: 0;
+      right: 15px;
+      background: #f5a623;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 0 0 8px 8px;
+      padding: 4px 14px;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+    } */
+
+    /* ---------- Chart Cards ---------- */
+    .pos-report-screen .prs-chart-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      height: 100%;
+    }
+    .pos-report-screen .prs-chart-card .prs-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .pos-report-screen .prs-chart-card .prs-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #333;
+    }
+    .pos-report-screen .prs-chart-card .prs-legend {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      color: #777;
+    }
+    .pos-report-screen .prs-chart-card .prs-legend span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .pos-report-screen .prs-chart-card .prs-legend .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .pos-report-screen .prs-daily-btn {
+      background: none;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #555;
+      padding: 2px 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ---------- Top Selling Table ---------- */
+   
+    
+
+    /* Table Head */
+    /* thead tr {
+      background: #f5a623;
+    } */
+    .pos-report-screen .prs-table thead th {
+        color: #fff !important;
+        background: #f5a623 !important;
+        border: none !important;
+        text-align: center;
+    }
+    .pos-report-screen .prs-table thead th {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 12px 14px;
+      border: none;
+    }
+    .pos-report-screen .prs-table tbody tr {
+      border-bottom: 1px solid #f5f5f5;
+    text-align: center; 
+    }
+    .pos-report-screen .prs-table tbody td {
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #444;
+      vertical-align: middle;
+      border: none;
+    }
+    .pos-report-screen .prs-table tbody tr:hover {
+      background: #fffdf7;
+    }
+    .pos-report-screen .prs-product-img {
+      width: 38px;
+      height: 38px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .pos-report-screen .prs-badge-good {
+      background: #e8f5e9;
+      color: #4caf50;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 4px 14px;
+    }
+    .pos-report-screen .prs-badge-low {
+      background: #fff3e0;
+      color: #f5a623;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 4px 10px;
+    }
+    .pos-report-screen .prs-action-btn {
+      background: none;
+      border: none;
+      color: #f5a623;
+      font-size: 15px;
+      cursor: pointer;
+      margin-right: 4px;
+    }
+    /* ===== TABLE CARD ===== */
+.pos-report-screen .prs-table-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px 0px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ===== TABLE TOP HEADER ===== */
+.pos-report-screen .prs-table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 22px;
+}
+.pos-report-screen .prs-table-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* ===== SEARCH BOX ===== */
+.pos-report-screen .prs-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+  font-size: 12px;
+}
+.pos-report-screen .prs-search-box {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 6px 14px 6px 30px;
+  font-size: 13px;
+  outline: none;
+  width: 180px;
+}
+
+/* ===== THREE DOTS BUTTON ===== */
+.pos-report-screen .prs-three-dots {
+  background: none;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* ===== TABLE HEAD ===== */
+.pos-report-screen .prs-table thead tr {
+  background: #f5a623;
+}
+.pos-report-screen .prs-table thead th {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 14px;
+  border: none;
+}
+
+/* ===== TABLE BODY ===== */
+.pos-report-screen .prs-table tbody tr {
+  border-bottom: 1px solid #f5f5f5;
+}
+.pos-report-screen .prs-table tbody td {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #444;
+  vertical-align: middle;
+  border: none;
+}
+.pos-report-screen .prs-table tbody tr:hover {
+  background: #fffdf7;
+}
+
+/* ===== PRODUCT IMAGE ===== */
+.pos-report-screen .prs-product-img {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ===== STATUS BADGES ===== */
+.pos-report-screen .prs-badge-good {
+  background: #e8f5e9;
+  color: #4caf50;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 4px 14px;
+}
+.pos-report-screen .prs-badge-low {
+  background: #fff3e0;
+  color: #f5a623;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.pos-report-screen .prs-action-btn {
+  background: none;
+  border: none;
+  color: #f5a623;
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 4px;
+}
+    /* ---- Responsive column sizing ---- */
+    /* Default Bootstrap col-6 col-sm-4 col-md-3 col-xl-2 used inline */
+  </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        
+        <button class="hamburger sidebar-burger" id="sidebarburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+         <button class="hamburger" id="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <!-- Logo -->
+        <div class="logo">
+            <img src="../assets/imgs/Logo design 4.png" alt="" srcset="">
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav-links" id="navLinks">
+            <a href="#" class="nav-link">Dashboard</a>
+            <a href="#" class="nav-link">Order List</a>
+            <a href="#" class="nav-link">History</a>
+            <a href="#" class="nav-link">Bills</a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="header-actions">
+            <button class="btn-new-order">New Order</button>
+
+            <div class="notification-btn">
+                <img src="../assets/imgs/Notification.png" alt="Notifications" class="notification-icon">
+            </div>
+
+            <div class="user-profile">
+                <img src="../assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+            </div>
+        </div>
+
+    </header>
+
+
+    <div class="dashboard-wrapper">
+        
+        <aside class="sidebar">
+        
+            <!-- Navigation Menu -->
+            <nav class="sidebar-nav">
+                
+                <!-- Home - Active with Green Background -->
+                <a href="#" class="nav-item active">
+                    <div class="nav-icon-box">
+                        <img src="../assets/imgs/Home Page.png" alt="Home" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Home</span>
+                </a>
+                
+                <!-- Customer -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="../assets/imgs/orders.png" alt="Order Cancel" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Order Cancel</span>
+                </a>
+                
+                <!-- Tables -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="../assets/imgs/Order History.png" alt="Order HIstory" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Order History</span>
+                </a>
+                
+                <!-- Cashier -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="../assets/imgs/Settings.png" alt="Settings" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Settings</span>
+                </a>
+                
+                <!-- Orders -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="../assets/imgs/Customer.png" alt="Customers" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Customers</span>
+                </a>
+                
+                <!-- Reports -->
+                <a href="#" class="nav-item">
+                    <div class="nav-icon-box">
+                        <img src="../assets/imgs/tablet.png" alt="Tablets" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Tablets</span>
+                </a>
+                
+                <!-- Settings -->
+
+                
+            </nav>
+            
+            <!-- User Profile Section at Bottom -->
+            <div class="sidebar-footer">
+                
+                <!-- User Avatar -->
+                <div class="user-avatar-wrapper">
+                    <img src="../assets/imgs/Logo design 4.png" alt="User Profile" class="user-avatar">
+                </div>
+                
+                <!-- Logout -->
+                <a href="#" class="nav-item logout">
+                    <div class="nav-icon-box">
+                        <img src="../assets/imgs/Logout.png" alt="Logout" class="nav-icon">
+                    </div>
+                    <span class="nav-text">Logout</span>
+                </a>
+                
+            </div>
+            
+        </aside>
+
+        <div class="container-fluid">
+            <!-- Main Content Area -->
+            <main class="main-content" style="padding: 0px;background: none;">
+                <div class="tv-section">
+
+                    <div class="tv-header">
+                    <div>
+                        <h6 class="tv-title">Order Statictics</h6>
+                        <p class="m-0">Last Update 1 February 2026 at 8:00 PM </p>
+                    </div>
+
+                    <!-- <div class="tv-legend">
+                    <span class="tv-legend-item">
+                        <span class="tv-dot tv-dot-available"></span> Available: 3
+                    </span>
+                    <span class="tv-legend-item">
+                        <span class="tv-dot tv-dot-dining"></span> Dine in: 4
+                    </span>
+                    <span class="tv-legend-item">
+                        <span class="tv-dot tv-dot-reserved"></span> Reserved: 6
+                    </span>
+                    </div> -->
+
+                    <div class="tv-floor-btns">
+                        <button class="tv-floor-btn">Print</button>
+                        <button class="tv-floor-btn active">Download</button>
+                        </div>
+                    </div>
+
+                    <div class="pos-report-screen">
+                        <div class="">
+                            <div class="row g-0">
+                            <div class="col-12">
+
+                                <!-- ===== ROW 1: STAT CARDS ===== -->
+                                <div class="row g-3 mb-3" style="position:relative;">
+
+                                <!-- Excel Button -->
+                                <!-- <button class="prs-excel-btn">EXCEL</button> -->
+
+                                <!-- Daily Sale -->
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <div class="prs-stat-card">
+                                    <div class="prs-stat-icon"><i class="fas fa-shopping-bag"></i></div>
+                                    <div class="prs-stat-info">
+                                        <div class="prs-stat-value">$34,000</div>
+                                        <div class="prs-stat-label">Daily sale</div>
+                                    </div>
+                                    <span class="prs-stat-badge">+73%</span>
+                                    </div>
+                                </div>
+
+                                <!-- Daily Orders -->
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <div class="prs-stat-card">
+                                    <div class="prs-stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                                    <div class="prs-stat-info">
+                                        <div class="prs-stat-value">$34,000</div>
+                                        <div class="prs-stat-label">Daily Orders</div>
+                                    </div>
+                                    <span class="prs-stat-badge">+73%</span>
+                                    </div>
+                                </div>
+
+                                <!-- Today's Product -->
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <div class="prs-stat-card">
+                                    <div class="prs-stat-icon"><i class="fas fa-box"></i></div>
+                                    <div class="prs-stat-info">
+                                        <div class="prs-stat-value">$34,000</div>
+                                        <div class="prs-stat-label">Today's Product</div>
+                                    </div>
+                                    <span class="prs-stat-badge">+73%</span>
+                                    </div>
+                                </div>
+
+                                <!-- Today's Visitors -->
+                                <div class="col-12 col-sm-6 col-lg-3">
+                                    <div class="prs-stat-card">
+                                    <div class="prs-stat-icon"><i class="fas fa-users"></i></div>
+                                    <div class="prs-stat-info">
+                                        <div class="prs-stat-value">$34,000</div>
+                                        <div class="prs-stat-label">Today's Visitors</div>
+                                    </div>
+                                    <span class="prs-stat-badge">+73%</span>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <!-- ===== ROW 2: CHARTS ===== -->
+                                <div class="row g-3 mb-3">
+
+                                <!-- Sales Report Chart -->
+                                <div class="col-12 col-lg-6">
+                                    <div class="prs-chart-card">
+                                    <div class="prs-card-header">
+                                        <div>
+                                        <div class="prs-card-title">Sales Report</div>
+                                        <div class="prs-legend mt-1">
+                                            <span><span class="dot" style="background:#e74c3c"></span> Net Income</span>
+                                            <span><span class="dot" style="background:#4caf50"></span> Total sales</span>
+                                            <span><span class="dot" style="background:#aaa"></span> Total revenue</span>
+                                        </div>
+                                        </div>
+                                        <button class="prs-daily-btn">Daily <i class="fas fa-chevron-down" style="font-size:10px"></i></button>
+                                    </div>
+                                    <canvas id="prs-sales-chart" height="130"></canvas>
+                                    </div>
+                                </div>
+
+                                <!-- Customer Report Chart -->
+                                <div class="col-12 col-lg-6">
+                                    <div class="prs-chart-card">
+                                    <div class="prs-card-header">
+                                        <div>
+                                        <div class="prs-card-title">Customer Report</div>
+                                        <div class="prs-legend mt-1">
+                                            <span><span class="dot" style="background:#e74c3c"></span> Net Income</span>
+                                            <span><span class="dot" style="background:#e74c3c; opacity:.4"></span> Total sales</span>
+                                            <span><span class="dot" style="background:#aaa"></span> Total revenue</span>
+                                        </div>
+                                        </div>
+                                        <button class="prs-daily-btn">Daily <i class="fas fa-chevron-down" style="font-size:10px"></i></button>
+                                    </div>
+                                    <canvas id="prs-customer-chart" height="130"></canvas>
+                                    </div>
+                                </div>
+                                </div>
+
+                                <!-- ===== ROW 3: TOP SELLING TABLE ===== -->
+                                <div class="pos-report-screen">
+                                    <div class="row">
+                                        <div class="col-12">
+                                        <div class="prs-table-card">
+
+                                            <!-- Table Header -->
+                                            <div class="prs-table-header">
+                                            <div class="prs-table-title">Top Selling Product</div>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <div style="position:relative;">
+                                                <i class="fas fa-search prs-search-icon"></i>
+                                                <input class="prs-search-box" type="text" placeholder="Search..."/>
+                                                </div>
+                                                <button class="prs-three-dots"><i class="fas fa-ellipsis-v"></i></button>
+                                            </div>
+                                            </div>
+
+                                            <!-- Table -->
+                                            <div class="table-responsive">
+                                            <table class="table prs-table mb-0">
+                                                <thead >
+                                                <tr>
+                                                    <th>Item Name</th>
+                                                    <th>Image</th>
+                                                    <th>Quantity</th>
+                                                    <th>Storage Location</th>
+                                                    <th>Last Updated</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Burger</td>
+                                                    <td><img class="prs-product-img" src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="Burger"/></td>
+                                                    <td>2</td>
+                                                    <td>Freezer</td>
+                                                    <td>02 Feb 2026</td>
+                                                    <td><span class="prs-badge-good">Good</span></td>
+                                                    <td class="d-flex justify-content-evenly">
+                                                        <button class="prs-action-btn"><i class="fas fa-pencil-alt"></i></button>
+                                                        <button class="prs-three-dots"><i class="fas fa-ellipsis-v"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pizza</td>
+                                                    <td><img class="prs-product-img" src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Pizza"/></td>
+                                                    <td>2</td>
+                                                    <td>Freezer</td>
+                                                    <td>02 Feb 2026</td>
+                                                    <td><span class="prs-badge-low">Low Stock</span></td>
+                                                    <td class="d-flex justify-content-evenly">
+                                                    <button class="prs-action-btn"><i class="fas fa-pencil-alt"></i></button>
+                                                    <button class="prs-three-dots"><i class="fas fa-ellipsis-v"></i></button>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            </div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div><!-- col-12 -->
+                            </div><!-- row -->
+                        </div><!-- container-fluid -->
+                    </div><!-- .pos-report-screen -->
+
+                </div>
+            </main>
+        </div>
+
+
+</div>
+
+
+
+    <!-- JavaScript for Hamburger -->
+    <script src="../assets/javascript/custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ===== Sales Report Chart =====
+        const salesCtx = document.getElementById('prs-sales-chart').getContext('2d');
+        const years = [];
+        for (let y = 2014; y <= 2020; y++) {
+            for (let m = 0; m < 12; m++) years.push(`${y}-${String(m+1).padStart(2,'0')}`);
+        }
+        const rnd = (min,max,n) => Array.from({length:n},()=>+(Math.random()*(max-min)+min).toFixed(2));
+        new Chart(salesCtx, {
+            type: 'line',
+            data: {
+            labels: years,
+            datasets: [{
+                label: 'Net Income',
+                data: rnd(0.6, 0.9, years.length),
+                borderColor: 'rgba(130,180,230,0.9)',
+                backgroundColor: 'rgba(130,180,230,0.18)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 0,
+                borderWidth: 2
+            }]
+            },
+            options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { maxTicksLimit: 4, font:{size:10} }, grid:{display:false} },
+                y: { ticks: { font:{size:10} }, grid:{color:'#f0f0f0'} }
+            }
+            }
+        });
+
+        // ===== Customer Report Chart =====
+        const custCtx = document.getElementById('prs-customer-chart').getContext('2d');
+        const days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+        new Chart(custCtx, {
+            type: 'line',
+            data: {
+            labels: days,
+            datasets: [{
+                label: 'Hours',
+                data: [14, 16, 23, 18, 15, 12, 10],
+                borderColor: '#f5a623',
+                backgroundColor: 'rgba(245,166,35,0.18)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: '#f5a623',
+                borderWidth: 2
+            }]
+            },
+            options: {
+            responsive: true,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                callbacks: {
+                    label: ctx => `${ctx.parsed.y} h`
+                }
+                }
+            },
+            scales: {
+                x: { ticks: { font:{size:11} }, grid:{display:false} },
+                y: { ticks: { font:{size:10}, callback: v => v+' h' }, grid:{color:'#f0f0f0'}, max: 25 }
+            }
+            }
+        });
+    </script>
+
+</body>
+</html>
+    
+
+  

@@ -88,7 +88,7 @@ function initPaymentChart() {
     const labels = ['Cash', 'Card', 'Online'];
     
     new Chart(ctx, {
-        type: 'doughnut',
+        type: 'bar',
         data: {
             labels: labels,
             datasets: [{

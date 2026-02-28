@@ -21,6 +21,8 @@
 </head>
 
 <body>
+    <!-- Mobile Cart Backdrop -->
+    <div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
 
     <!-- Header -->
     <header class="header">
@@ -443,7 +445,11 @@
         </div>
 
         <!-- Right Side - Cart/Invoice -->
-        <div class="cart-section">
+        <div class="cart-section" id="cartSection">
+            <!-- Drag Handle (mobile only) -->
+            <div class="drawer-handle">
+                <span></span>
+            </div>
             
             <!-- Logo and Tagline -->
             <div class="cart-header">
@@ -611,7 +617,7 @@
                 <!-- Action Buttons -->
                 <div class="cart-action-buttons">
                     <button class="hold-order-btn">Hold Order</button>
-                    <button class="payment-btn">Payment</button>
+                    <button class="payment-btn">View Bucket</button>
                 </div>
 
             </div>
@@ -627,7 +633,34 @@
 <script src="assets/javascript/custom.js"></script>
 
 
-</body>
+    <!-- Mobile Floating Cart Button -->
+    <button class="cart-fab" onclick="openCart()">
+        🛒 View Cart
+        <span class="fab-count">5</span>
+    </button>
+
+    <script>
+    function openCart() {
+        document.getElementById('cartSection').classList.add('open');
+        document.getElementById('cartBackdrop').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeCart() {
+        document.getElementById('cartSection').classList.remove('open');
+        document.getElementById('cartBackdrop').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Swipe down se close
+    const drawer = document.getElementById('cartSection');
+    let startY = 0;
+    drawer.addEventListener('touchstart', e => { startY = e.touches[0].clientY; });
+    drawer.addEventListener('touchend', e => {
+        if (e.changedTouches[0].clientY - startY > 60) closeCart();
+    });
+    </script>
+
+    </body>
 </html>
     
 
