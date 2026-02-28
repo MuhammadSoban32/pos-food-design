@@ -5488,5 +5488,5 @@ button.save-btn.stock2{
 @media (min-width: 994px) {
   .cart-fab { display: none; }
   .cart-backdrop { display: none; }
-  .drawer-handle { display: none; }
+  .drawer-handle { display: none; } 
 }
