@@ -22,39 +22,65 @@
 <body>
     <!-- Header -->
     <header class="header">
-        
-         <button class="hamburger" id="hamburger">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
-        <!-- Logo -->
-        <div class="logo">
-            <span class="logo-text">Easy <span class="logo-highlight">POS</span></span>
-        </div>
+    <button class="hamburger" id="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
 
-        <!-- Navigation Links -->
-        <nav class="nav-links" id="navLinks">
-            <a href="#" class="nav-link">Dashboard</a>
-            <a href="#" class="nav-link">Order List</a>
-            <a href="#" class="nav-link">History</a>
-            <a href="#" class="nav-link">Bills</a>
-        </nav>
+    <div class="logo">
+        <span class="logo-text">Easy <span class="logo-highlight">POS</span></span>
+    </div>
 
-        <!-- Right Actions -->
-        <div class="header-actions">
-            <button class="btn-new-order">New Order</button>
+    <nav class="nav-links" id="navLinks">
+        <a href="#" class="nav-link">Dashboard</a>
 
-            <div class="notification-btn">
-                <img src="../assets/imgs/bellicon.png" alt="Notifications" class="notification-icon">
-            </div>
-
-            <div class="user-profile">
-                <img src="../assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+        <!-- User Management Dropdown -->
+        <div class="dropdown">
+            <a href="#" class="nav-link dropdown-toggle">User Management</a>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Add User</a>
+                <a href="#" class="dropdown-item">View User</a>
             </div>
         </div>
 
-    </header>
+        <!-- Inventory Dropdown -->
+        <div class="dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Inventory</a>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Add Product</a>
+                <a href="#" class="dropdown-item">Add Category</a>
+                <a href="#" class="dropdown-item">Add Inventory</a>
+            </div>
+        </div>
+
+        <a href="#" class="nav-link">Customer</a>
+
+        <!-- Report Dropdown -->
+        <div class="dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Report</a>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Sales Report</a>
+                <a href="#" class="dropdown-item">Orders Report</a>
+                <a href="#" class="dropdown-item">User Report</a>
+                <a href="#" class="dropdown-item">Cancel Orders Report</a>
+                <a href="#" class="dropdown-item">Customers Report</a>
+                <a href="#" class="dropdown-item">Stocks Report</a>
+                <a href="#" class="dropdown-item">Daily Expense Report</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="header-actions">
+        <button class="btn-new-order">New Order</button>
+        <div class="notification-btn">
+            <img src="../assets/imgs/bellicon.png" alt="Notifications" class="notification-icon">
+        </div>
+        <div class="user-profile">
+            <img src="../assets/imgs/Ellipse 1.png" alt="User Profile" class="user-avatar">
+        </div>
+    </div>
+</header>
 
 
     <div class="dashboard-wrapper">
@@ -262,7 +288,7 @@
 
     <!-- JavaScript for Hamburger -->
 
-
+    <script src="../assets/javascript/custom.js"></script>
     <script>
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -280,6 +306,7 @@
             }
         });
     </script>
+
 
 </body>
 </html>

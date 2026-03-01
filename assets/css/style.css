@@ -1945,7 +1945,7 @@ header.header {
 }
 
 .invoice-info {
-    background-color: #fff; */
+    background-color: #fff; 
     padding: 10px 20px;
     /* border-radius: 8px; */
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
@@ -2808,7 +2808,7 @@ button.back-btn {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid #e0e0e0;
-        border-radius: 12px;
+    border-radius: 12px;
 }
 
 .available-header-left {
@@ -3126,12 +3126,12 @@ button.back-btn {
 /* Form Header */
 .form-header {
     border-radius: 10px;
-    padding: 15px 25px;
+    padding: 10px 22px;
     background: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 42px;
+    margin-bottom: 17px;
 }
 
 .form-title {
@@ -4280,15 +4280,20 @@ button.save-btn.stock2{
 .um-list-section {
     background-color: #fff;
     border-radius: 12px;
-    padding: 25px;
+    /* padding: 25px; */
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .um-list-header {
+    padding: 25px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
+}
+
+th.um-th {
+    text-align: center;
 }
 
 .um-list-title {
@@ -4359,7 +4364,7 @@ button.save-btn.stock2{
 }
 
 .um-table-head-row {
-    background-color: #ffc107;
+    background-color: #E6B325;
 }
 
 .um-th {
@@ -4381,6 +4386,7 @@ button.save-btn.stock2{
 }
 
 .um-td {
+    text-align: center;
     padding: 18px 12px;
     font-size: 13px;
     color: #333;
@@ -4408,6 +4414,7 @@ button.save-btn.stock2{
 
 /* Action Buttons */
 .um-action-btns {
+    justify-content: center;
     display: flex;
     gap: 8px;
 }
@@ -4436,11 +4443,11 @@ button.save-btn.stock2{
 }
 
 .um-delete-btn {
-    background-color: #ffc107;
+    background-color: #E6B325;
 }
 
 .um-delete-btn:hover {
-    background-color: #ffb300;
+    background-color: #E6B325;
 }
 
 .um-action-icon {
@@ -4647,7 +4654,7 @@ button.save-btn.stock2{
 .ac-table-section {
     background-color: white;
     border-radius: 12px;
-    padding: 25px;
+    /* padding: 25px; */
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
@@ -4744,7 +4751,7 @@ button.save-btn.stock2{
 
 .ac-th {
     padding: 15px 12px;
-    text-align: left;
+    text-align: center;
     font-size: 13px;
     font-weight: 600;
     color: #666;
@@ -4763,6 +4770,7 @@ button.save-btn.stock2{
 
 .ac-td {
     padding: 18px 12px;
+    text-align: center;
     font-size: 13px;
     color: #333;
 }
@@ -4789,6 +4797,7 @@ button.save-btn.stock2{
 
 /* Action Buttons */
 .ac-action-btns {
+    justify-content: center;
     display: flex;
     gap: 8px;
 }
@@ -4878,12 +4887,19 @@ button.save-btn.stock2{
 
 /* Page Header */
 .ai-page-header {
+    border-radius: 12px;
+    padding: 18px 25px;
+    background: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
+    /* padding-bottom: 20px; */
+    /* border-bottom: 1px solid #e0e0e0; */
+}
+
+.invent{
+    padding: 5px 19px;
 }
 
 .ai-page-title {
@@ -4960,12 +4976,12 @@ button.save-btn.stock2{
 }
 
 .ai-upload-icon {
-    width: 60px;
+    /* width: 60px;
     height: 60px;
     background-color: #ffc107;
     border-radius: 10px;
     display: flex;
-    align-items: center;
+    align-items: center; */
     justify-content: center;
 }
 
@@ -5076,12 +5092,19 @@ button.save-btn.stock2{
 
 /* Page Header */
 .ae-page-header {
+    border-radius: 12px;
+    padding: 17px 25px;
+    background: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
+    /* border-bottom: 1px solid #e0e0e0; */
+}
+
+.exp{
+    padding: 5px 16px;
 }
 
 .ae-page-title {
@@ -5148,7 +5171,7 @@ button.save-btn.stock2{
     font-weight: 600;
     color: #fff;
     margin: 0;
-    background-color: #ffc107; /* Add: yellow background */
+    background-color: #E6B325; /* Add: yellow background */
     padding: 20px 25px; /* Add: padding here */
 }
 
@@ -5205,7 +5228,7 @@ button.save-btn.stock2{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0; /* Change: remove margin */
-    background-color: #ffc107; /* Add: yellow background */
+    background-color: #E6B325; /* Add: yellow background */
     padding: 20px 25px; /* Add: padding here */
 }
 
@@ -5271,7 +5294,7 @@ button.save-btn.stock2{
 
 /* Table */
 .ae-table-wrapper {
-     padding: 25px;
+     /* padding: 25px; */
     overflow-x: auto;
     background-color: #fff;
     border-radius: 0; /* Change: remove border radius */
@@ -5288,7 +5311,7 @@ button.save-btn.stock2{
 
 .ae-th {
     padding: 15px 12px;
-    text-align: left;
+    text-align: center;
     font-size: 13px;
     font-weight: 600;
     color: #666;
@@ -5306,6 +5329,7 @@ button.save-btn.stock2{
 }
 
 .ae-td {
+    text-align: center;
     padding: 18px 12px;
     font-size: 13px;
     color: #333;
@@ -5313,6 +5337,7 @@ button.save-btn.stock2{
 
 /* Action Buttons */
 .ae-action-btns {
+    justify-content: center;
     display: flex;
     gap: 8px;
 }
@@ -5522,4 +5547,103 @@ button.save-btn.stock2{
   .cart-fab { display: none; }
   .cart-backdrop { display: none; }
   .drawer-handle { display: none; } 
+}
+
+.cat{
+    padding: 5px 16px;
+}
+.set{
+    padding: 5px 16px;
+}
+.user{
+    padding: 5px 16px;
+}
+.produc{
+    padding: 5px 16px;
+}
+.import-btn{
+    padding: 10px 39px;
+    background-color: #12B76A;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Menu - by default hidden */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 8px 0;
+}
+
+/* Dropdown Items */
+.dropdown-item {
+    display: block;
+    padding: 10px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f4ff;
+    color: #4f46e5; /* apna theme color yahan lagao */
+}
+
+/* Show on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+/* Mobile Responsive Dropdown Fix */
+@media (max-width: 768px) {
+    
+    .dropdown-menu {
+        position: static;      /* absolute hata ke static karo */
+        box-shadow: none;      /* shadow hata do mobile mein */
+        min-width: 100%;       /* full width lo */
+        border-radius: 0;
+        padding: 0;
+        background-color: #f8f9ff;  /* halka alag bg taake pata chale */
+        border-left: 3px solid #4f46e5;  /* left border for visual */
+        margin-left: 10px;
+    }
+
+    .dropdown-item {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+
+    /* Dropdown by default band rakho mobile mein */
+    .dropdown-menu {
+        display: none;
+    }
+
+    /* Active class se open hoga */
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-toggle {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
