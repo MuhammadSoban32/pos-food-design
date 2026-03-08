@@ -375,7 +375,7 @@
                         <input type="number" class="text-input" placeholder="$10">
                     </div>
                     <div class="col-12 col-sm-6 changes">
-                        <label class="input-label">Product Code</label>
+                        <label class="input-label">Product Code</label> 
                         <input type="number" class="text-input" placeholder="123 456">
                     </div>
                 </div>
@@ -431,10 +431,10 @@
                 </div>
             </div>
 
-            <hr class="adv-divider">
+            <!-- <hr class="adv-divider"> -->
 
             <!-- Choose Modifiers / Variations -->
-            <div class="adv-variations-box">
+            <div class="adv-variations-box" id="repeaterContainer">
                 <div class="adv-variations-header">
                     <h4 class="adv-title mb-0">Choose Modifiers / Variations</h4>
                     <button class="adv-edit-btn">✏️</button>
@@ -449,11 +449,12 @@
                     <div class="col">Group<span class="adv-required">*</span></div>
                     <div class="col-1"></div>
                 </div>
+                <hr>
 
                 <!-- Table Row 1 -->
-                <div class="row g-2 adv-table-row mt-1">
+                <div class="row g-2 adv-table-row mt-1" id="repeaterTemplate">
                     <div class="col">
-                        <input type="text" class="adv-input" placeholder="Enter your name">
+                        <input type="text" class="adv-input" placeholder="Enter name">
                     </div>
                     <div class="col">
                         <input type="text" class="adv-input" placeholder="Add description">
@@ -474,23 +475,24 @@
                             <option>Variation</option>
                         </select>
                     </div>
-                    <div class="col-1">
-                        <button class="adv-add-btn">+</button>
+                    <div class="col-1 d-flex justify-content-center align-items-center gap-1">
+                        <button class="adv-add-btn text-dark">+</button>
                     </div>
                 </div>
+                <hr>
 
                 <!-- Table Row 2 - Expanded dropdowns -->
-                <div class="row g-2 adv-table-row mt-1">
+                <!-- <div class="row g-2 adv-table-row mt-1">
                     <div class="col">
-                        <input type="text" class="adv-input" placeholder="Enter your name">
+                        <input type="text" class="adv-input" placeholder="Enter name">
                     </div>
                     <div class="col">
                         <input type="text" class="adv-input" placeholder="Add description">
                     </div>
                     <div class="col">
                         <input type="text" class="adv-input" placeholder="Add value">
-                    </div>
-                    <div class="col">
+                    </div> -->
+                    <!-- <div class="col">
                         <div class="adv-type-box">
                             <label class="adv-radio-opt">
                                 <input type="radio" name="type2" checked> Radio
@@ -505,12 +507,25 @@
                             <span class="adv-tag modifier">Modifier</span>
                             <span class="adv-tag variation">Variation</span>
                         </div>
+                    </div> -->
+                      <!-- <div class="col">
+                        <select class="adv-select">
+                            <option>Radio</option>
+                            <option>Checkbox</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="adv-select">
+                            <option>Select</option>
+                            <option>Modifier</option>
+                            <option>Variation</option>
+                        </select>
                     </div>
                     <div class="col-1 d-flex gap-1">
-                        <button class="adv-add-btn">+</button>
-                        <button class="adv-remove-btn">-</button>
+                        <button class="adv-add-btn text-dark">+</button>
+                        <button class="adv-remove-btn text-dark">-</button>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -557,6 +572,53 @@
         tabBtns[1].classList.add('active');
     }
 }
+
+/* ===== PASTE IN YOUR JS FILE (or <script> tag) ===== */
+
+document.querySelectorAll('.adv-option').forEach(option => {
+    option.addEventListener('click', function () {
+        // Remove active from all dots in same section
+        const section = this.closest('.adv-options');
+        section.querySelectorAll('.adv-dot').forEach(d => d.classList.remove('active-dot'));
+
+        // Activate clicked one
+        this.querySelector('.adv-dot').classList.add('active-dot');
+    });
+});
+
+// ===== REPEATER LOGIC =====
+
+// ADD button click — nai row add karo
+document.getElementById('repeaterContainer').addEventListener('click', function(e) {
+
+    // + button click
+    if (e.target.classList.contains('adv-add-btn')) {
+        const template = document.getElementById('repeaterTemplate');
+        const newRow = template.cloneNode(true);
+        newRow.removeAttribute('id'); // template ID hata do clone se
+
+        // Clone ke andar + aur - dono buttons dikhao
+        const addBtn = newRow.querySelector('.adv-add-btn');
+        addBtn.insertAdjacentHTML('afterend', ' <button class="adv-remove-btn text-dark">-</button>');
+
+        // Inputs clear karo
+        newRow.querySelectorAll('input').forEach(i => i.value = '');
+        newRow.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+
+        // HR aur nai row dono add karo
+        const hr = document.createElement('hr');
+        this.appendChild(hr);
+        this.appendChild(newRow);
+    }
+
+    // - button click — row remove karo
+    if (e.target.classList.contains('adv-remove-btn')) {
+        const row = e.target.closest('.adv-table-row');
+        const prev = row.previousElementSibling; // hr hoga
+        if (prev && prev.tagName === 'HR') prev.remove();
+        row.remove();
+    }
+});
     </script>
 </body>
 </html>
